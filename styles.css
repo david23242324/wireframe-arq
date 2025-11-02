@@ -6,8 +6,10 @@ body {
 }
 
 .logo {
-  font-size: 20px;
+  font-size: 25px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: 35px;
+  font-weight: 600;
 }
 
 /* Sección Del Header */
@@ -19,20 +21,68 @@ header {
   background: rgb(255, 255, 255, 1);
   color: rgb(0, 0, 0);
   padding: 0.2rem 2rem;
+  position: relative;
 }
 
-nav ul {
-  list-style: none;
+.nav-menu {
   display: flex;
-  gap: 2.5rem;
-  margin-left: 0.4rem;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu :hover {
+  transition: 1s;
+  color: #6d0dda;
 
 }
 
-nav a {
-  color: rgb(0, 0, 0);
+.nav-item {
+  position: relative;
+}
+
+.nav-toggle {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #000;
+  padding: 0.5rem;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 0px;
+  padding: 1rem 2rem;
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  z-index: 100;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submenu li {
+  padding: 0.5rem 1rem;
+}
+
+.submenu li a {
+  color: #333;
   text-decoration: none;
+  font-size: 0.95rem;
+  transition: 1s;
+  
+}
+
+.submenu li a:hover {
+  color: #000;
+  font-weight: bold;
 }
 
 /* Sección De Iconos */
@@ -62,23 +112,36 @@ nav a {
   position: absolute;
   top: 70px;
   left: 50%;
-  transform: translateX(-50%);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateX(-50%) translateY(-20px);
   opacity: 0;
   pointer-events: none;
-}
-
-.search-bar input {
-  padding: 0.7rem 1rem;
-  font-size: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  background: #ffffff;
+  padding: 1rem 3rem 1rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  z-index: 100;
 }
 
 .search-bar.visible {
   opacity: 1;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(10px);
+  transform: translateX(-50%) translateY(0);
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #888;
 }
 
   /* // Sección De Carrito */
@@ -120,12 +183,43 @@ nav a {
   cursor: pointer;
 }
 
+/* Hero Texto*/
+.hero-overlay {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  z-index: 2;
+  text-align: left;
+  max-width: 600px;
+}
+
+.hero-title {
+  font-size: 5rem;
+  font-weight: 100;
+  letter-spacing: 0.4rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.hero-subtext {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  font-weight: 400;
+  font-family: 'Times New Roman', Times, serif;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-left: -30px;
+}
+
 /* Sección De Pantalla De Inicio */
 
 .hero-banner {
   position: relative;
-  height: 91vh;
-  background: linear-gradient(to right, #000, #222);
+  height: 93vh;
+  width: 202.7vh;
+  background:#0b0b0b;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -146,12 +240,18 @@ nav a {
 .hero-banner::before {
   content: "";
   position: absolute;
-  top: 0px;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('https://i.pinimg.com/736x/de/87/98/de879823cdded25720a788ccc70ab3bc.jpg') center/cover no-repeat;
+  background-image: url('https://i.pinimg.com/736x/69/c7/df/69c7df1d621419c65615b327bf337149.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   z-index: 1;
+  opacity: 0.35; /* suaviza la saturación visual */
+  filter: contrast(1.1) brightness(1.05) saturate(0.85);
+  transition: filter 0.3s ease;
 }
 
 .cta-button {
@@ -163,13 +263,14 @@ nav a {
   font-size: 0.9rem;
   cursor: pointer;
   border-radius: 50px;
-  margin-top: 30rem;
+  margin-top: 26rem;
   transition: background 0.3s ease;
 }
 
 .cta-button:hover {
   transform: scale(1.1);
-  transition: 0.4s;
+  transition: 0.6s;
+  background: #6d0dda;
 
 }
 

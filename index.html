@@ -7,45 +7,86 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- 🧭 Header -->
+
+  <!-- Header -->
   <header>
-    <div class="logo">FOCUS</div>
-    <nav>
-      <ul>
-        <li><a href="#">Hombre</a></li>
-        <li><a href="#">Accesorios</a></li>
-        <li><a href="#">Re Stock</a></li>
-        <li><a href="#">Blog</a></li>
+    <div class="logo">F O C U S</div>
+
+   <nav>
+  <ul class="nav-menu">
+    <li class="nav-item">
+      <button class="nav-toggle">Hombre</button>
+      <ul class="submenu">
+        <li><a href="#">Camisetas</a></li>
+        <li><a href="#">Shorts</a></li>
+        <li><a href="#">Sudaderas</a></li>
       </ul>
-    </nav>
-      <div class="search-bar hidden">
-        <input type="text" placeholder="Buscar productos..." />
-</div>
-      <div class="icon-bar">
+    </li>
+    <li class="nav-item">
+      <button class="nav-toggle">Accesorios</button>
+      <ul class="submenu">
+        <li><a href="#">Rodilleras</a></li>
+        <li><a href="#">Guantes</a></li>
+        <li><a href="#">Botellas</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <button class="nav-toggle">Re Stock</button>
+      <ul class="submenu">
+        <li><a href="#">Novedades</a></li>
+        <li><a href="#">Lo más vendido</a></li>
+        <li><a href="#">Ediciones limitadas</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <button class="nav-toggle">Blog</button>
+      <ul class="submenu">
+        <li><a href="#">Tips de entrenamiento</a></li>
+        <li><a href="#">Nutrición</a></li>
+        <li><a href="#">Historias FitZone</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
-       <button class="icon-btn" title="Buscar">
-         <img src="https://i.pinimg.com/736x/79/ce/10/79ce10e4c34077215b988139aec41dbe.jpg" alt="Buscar" width="31px" />
-       </button>
+    <!-- Barra De Busqueda Oculta -->
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar productos..." />
+    </div>
 
-       <button class="icon-btn" title="Perfil">
-         <img src="https://i.pinimg.com/736x/de/c6/4b/dec64b7b70d2072ed7046b2ce8f87b34.jpg" alt="Perfil" width="35px"/>
-       </button>
-
-       <button class="icon-btn" title="Carrito">
-         <img src="https://i.pinimg.com/1200x/7f/24/92/7f249252404646c08d90976505cb6937.jpg" alt="Carrito" width="35px"/>
+    <!-- Iconos de acción -->
+    <div class="icon-bar">
+      <button class="icon-btn" title="Buscar">
+        <img src="https://i.pinimg.com/736x/79/ce/10/79ce10e4c34077215b988139aec41dbe.jpg" alt="Buscar" width="31px" />
       </button>
-</div>
+
+      <button class="icon-btn" title="Perfil">
+        <img src="https://i.pinimg.com/736x/de/c6/4b/dec64b7b70d2072ed7046b2ce8f87b34.jpg" alt="Perfil" width="35px"/>
+      </button>
+
+      <button class="icon-btn" title="Carrito">
+        <img src="https://i.pinimg.com/1200x/7f/24/92/7f249252404646c08d90976505cb6937.jpg" alt="Carrito" width="35px"/>
+      </button>
     </div>
   </header>
 
-<!-- 🖼️ Hero Section tipo Wargo -->
+  <!-- Hero Section -->
 <section class="hero-banner">
+  <div class="hero-overlay">
+    <h1 class="hero-title">F O C U S</h1>
+    <p class="hero-subtext">
+      Timeless style forged in grit and ambition.<br>
+      Tailored for those who lead, not follow.<br>
+      Inspired by the streets of Birmingham, refined for the modern gentleman.
+    </p>
+  </div>
   <div class="hero-content">
     <button class="cta-button">COMPRAR</button>
   </div>
 </section>
 
-  <!-- 🧢 Colecciones destacadas -->
+
+  <!-- Colecciones Destacadas -->
   <section class="collections">
     <h2>Colecciones destacadas</h2>
     <div class="grid">
@@ -62,7 +103,7 @@
     </div>
   </section>
 
-  <!-- 🛍️ Productos destacados -->
+  <!-- Productos Destacados -->
   <section class="products">
     <h2>Best Sellers</h2>
     <div class="grid">
@@ -81,19 +122,18 @@
     </div>
   </section>
 
-  <!-- 📞 Footer -->
+  <!-- Footer -->
   <footer>
     <p>© 2025 FOCUS. Todos los derechos reservados.</p>
-    <p>Contacto: contacto@FOCUSom | WhatsApp: +57 300 123 4567</p>
+    <p>Contacto: contacto@focus.com | WhatsApp: +57 300 123 4567</p>
   </footer>
 
+  <!-- Panel Del Carrito -->
   <aside class="cart-panel">
-  <h2>Tu carrito</h2>
-  <ul class="cart-items">
-
-  </ul>
-  <button class="close-cart">Cerrar</button>
-</aside>
+    <h2>Tu carrito</h2>
+    <ul class="cart-items"></ul>
+    <button class="close-cart">Cerrar</button>
+  </aside>
 
   <script src="main.js"></script>
 </body>
