@@ -80,9 +80,47 @@ document.querySelectorAll('.nav-toggle').forEach(btn => {
   });
 });
 
-// Cerrar submenús al hacer clic fuera
+// Cerrar Submenus Al Hacer ClicK Fuera
 document.addEventListener('click', () => {
   document.querySelectorAll('.submenu').forEach(menu => {
     menu.style.display = 'none';
+  });
+});
+
+// Sección De Nuevos Productos
+
+const track = document.querySelector('.slider-track');
+const leftArrow = document.querySelector('.slider-arrow.left');
+const rightArrow = document.querySelector('.slider-arrow.right');
+
+let scrollX = 0;
+const step = 340;
+
+leftArrow.addEventListener('click', () => {
+  scrollX = Math.max(scrollX - step, 0);
+  track.style.transform = `translateX(-${scrollX}px)`;
+});
+
+rightArrow.addEventListener('click', () => {
+  scrollX += step;
+  track.style.transform = `translateX(-${scrollX}px)`;
+});
+
+// Botón De Agregar Carrito
+
+document.querySelectorAll('.add-to-cart').forEach(button => {
+  button.addEventListener('click', () => {
+    const product = button.dataset.product;
+    const price = button.dataset.price;
+    const img = button.dataset.img;
+
+    const cartItem = document.createElement('li');
+    cartItem.innerHTML = `
+      <img src="${img}" alt="${product}" width="50" />
+      <span>${product}</span> - <strong>$${price} COP</strong>
+    `;
+    document.querySelector('.cart-items').appendChild(cartItem);
+
+    document.querySelector('.cart-panel').classList.add('open');
   });
 });

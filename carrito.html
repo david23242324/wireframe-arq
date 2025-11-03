@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrito de Compras</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      padding: 0.5rem 2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    .logo-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Sección De Iconos */
+
+.icon-bar {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem;
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.icon-btn:hover {
+  transform: scale(1.1);
+}
+
+    .cart-container {
+      max-width: 900px;
+      margin: 4rem auto;
+      background: #fff;
+      padding: 2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      border-radius: 0;
+    }
+
+    .cart-container h2 {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      color: #222;
+      text-align: center;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 0;
+    }
+
+    .cart-item img {
+      width: 80px;
+      border-radius: 0;
+    }
+
+    .cart-details {
+      flex: 1;
+      margin-left: 1rem;
+    }
+
+    .cart-details h3 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .cart-details p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .cart-price {
+      font-weight: bold;
+      color: #6d0dda;
+    }
+
+    .cart-summary {
+      margin-top: 2rem;
+      text-align: right;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .cart-actions {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .cart-actions a,
+    .cart-actions button {
+      background-color: #6d0dda;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-weight: 600;
+      border-radius: 0;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .cart-actions a:hover,
+    .cart-actions button:hover {
+      background-color: #4a0aa5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+<a href="index.html" class="logo-link">
+  <div class="logo">F O C U S</div>
+</a>
+
+   <nav>
+  <ul class="nav-menu">
+    <li class="nav-item">
+      <button class="nav-toggle">Hombre</button>
+      <ul class="submenu">
+        <li><a href="#">Camisetas</a></li>
+        <li><a href="#">Shorts</a></li>
+        <li><a href="#">Sudaderas</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <button class="nav-toggle">Accesorios</button>
+      <ul class="submenu">
+        <li><a href="#">Gorros</a></li>
+        <li><a href="#">Gafas</a></li>
+        <li><a href="#">Anillos</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <button class="nav-toggle">Re Stock</button>
+      <ul class="submenu">
+        <li><a href="#">Novedades</a></li>
+        <li><a href="#">Lo más vendido</a></li>
+        <li><a href="#">Ediciones limitadas</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <button class="nav-toggle">Blog</button>
+      <ul class="submenu">
+        <li><a href="#">Tips de Vestimenta</a></li>
+        <li><a href="#">Preguntas</a></li>
+        <li><a href="#">Historias</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+    <!-- Barra De Busqueda Oculta -->
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar productos..." />
+    </div>
+
+    <!-- Iconos de acción -->
+    <div class="icon-bar">
+      <button class="icon-btn" title="Buscar">
+        <img src="https://i.pinimg.com/736x/79/ce/10/79ce10e4c34077215b988139aec41dbe.jpg" alt="Buscar" width="31px" />
+      </button>
+
+            <a href="login.html" class="icon-btn" title="Perfil">
+        <img src="https://i.pinimg.com/736x/de/c6/4b/dec64b7b70d2072ed7046b2ce8f87b34.jpg" alt="Perfil" width="35px"/>
+      </a>
+
+    </div>
+  </header>
+
+  <!-- Carrito -->
+  <div class="cart-container">
+    <h2>Tu Carrito</h2>
+
+    <div class="cart-item">
+      <img src="https://i.pinimg.com/1200x/5a/6c/a5/5a6ca5c2d4196ea955ecc694f9ef7e92.jpg" alt="Camiseta Urban Cut" />
+      <div class="cart-details">
+        <h3>CAMISETA URBAN CUT - IVORY</h3>
+        <p>Cantidad: 1</p>
+      </div>
+      <div class="cart-price">$75.000 COP</div>
+    </div>
+
+    <div class="cart-item">
+      <img src="https://i.pinimg.com/736x/22/ac/1a/22ac1ab1ffa83e0813851ab6cfe9bc94.jpg" alt="Gorra Snapback" />
+      <div class="cart-details">
+        <h3>GORRA URBAN SNAPBACK - BLACK</h3>
+        <p>Cantidad: 2</p>
+      </div>
+      <div class="cart-price">$144.000 COP</div>
+    </div>
+
+    <div class="cart-summary">
+      Total: $219.000 COP
+    </div>
+
+    <div class="cart-actions">
+      <a href="index.html">Seguir Comprando</a>
+      <button>Finalizar Compra</button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
