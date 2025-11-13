@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Información Cliente Mayorista</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+.info-mayorista {
+  max-width: 900px;
+  margin: 5rem auto;
+  background: linear-gradient(to right, #ffffff, #f9f9f9);
+  padding: 3rem;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  border-radius: 0;
+  border-left: 6px solid #09b311;
+}
+
+.info-mayorista h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.info-mayorista h3 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #09b311;
+  font-weight: 600;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.info-mayorista p {
+  font-size: 1.05rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.info-mayorista ul {
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-mayorista ul li {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  color: #444;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.info-mayorista ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #09b311;
+  font-size: 0.9rem;
+}
+
+.btn-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.mayorista-btn {
+  display: inline-block;
+  background-color: #000000;
+  color: white;
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 50px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.mayorista-btn:hover {
+  background-color: #09b311;
+  transform: scale(1.05);
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+<a href="index.html" class="logo-link">
+  <div class="logo">F O C U S</div>
+</a>
+
+    <nav>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-toggle">Hombre</button>
+          <ul class="submenu">
+            <li><a href="#">Camisetas</a></li>
+            <li><a href="#">Shorts</a></li>
+            <li><a href="#">Sudaderas</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <button class="nav-toggle">Accesorios</button>
+          <ul class="submenu">
+            <li><a href="#">Gorros</a></li>
+            <li><a href="#">Gafas</a></li>
+            <li><a href="#">Anillos</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <button class="nav-toggle">Re Stock</button>
+          <ul class="submenu">
+            <li><a href="#">Novedades</a></li>
+            <li><a href="#">Lo más vendido</a></li>
+            <li><a href="#">Ediciones limitadas</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <button class="nav-toggle">Blog</button>
+          <ul class="submenu">
+            <li><a href="#">Tips de Vestimenta</a></li>
+            <li><a href="#">Preguntas</a></li>
+            <li><a href="#">Historias</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Barra De Busqueda Oculta -->
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar productos..." />
+    </div>
+
+    <!-- Iconos de acción -->
+    <div class="icon-bar">
+      <button class="icon-btn" title="Buscar">
+        <img src="https://i.pinimg.com/736x/79/ce/10/79ce10e4c34077215b988139aec41dbe.jpg" alt="Buscar" width="31px" />
+      </button>
+
+      <a href="login.html" class="icon-btn" title="Perfil">
+        <img src="https://i.pinimg.com/736x/de/c6/4b/dec64b7b70d2072ed7046b2ce8f87b34.jpg" alt="Perfil" width="35px"/>
+      </a>
+
+      <button class="icon-btn" title="Carrito">
+        <img src="https://i.pinimg.com/1200x/7f/24/92/7f249252404646c08d90976505cb6937.jpg" alt="Carrito" width="35px"/>
+      </button>
+    </div>
+  </header>
+
+  <!-- Contenido -->
+  <section class="info-mayorista">
+    <h2>¿Quieres ser Cliente Mayorista?</h2>
+    <br>
+    <p>
+      En FOCUS ofrecemos condiciones especiales para tiendas, distribuidores y compradores al por mayor. Si estás interesado en acceder a precios preferenciales, atención personalizada y productos exclusivos, este es tu lugar.
+    </p>
+
+    <h3>Beneficios de ser cliente mayorista:</h3>
+    <ul>
+      <li>Precios especiales por volumen</li>
+      <li>Acceso anticipado a nuevos lanzamientos</li>
+      <li>Atención directa con asesores</li>
+      <li>Opciones de pago flexibles</li>
+    </ul>
+
+    <h3>¿Cómo aplicar?</h3>
+    <ul>
+      <li>Haz clic en el botón de abajo</li>
+      <li>Llena el formulario con tus datos y los de tu empresa</li>
+      <li>Espera la confirmación por correo electrónico</li>
+    </ul>
+    
+    <br>
+    <br>
+
+    <div class="btn-container">
+      <a href="mayorista-solicitud.html" class="mayorista-btn">Solicitar Acceso Mayorista</a>
+    </div>
+  </section>
+
+    <!-- Footer -->
+  <footer>
+    <p>© 2025 FOCUS. Todos los derechos reservados.</p>
+    <p>Contacto: contacto@focus.com | WhatsApp: +57 300 123 4567</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

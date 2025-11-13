@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cliente Mayorista</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+/* Header */
+
+.nav-menu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu :hover {
+  transition: 1s;
+  color: #09b311;
+}
+
+.nav-item {
+  margin-right: 0.5rem;
+  padding: 0.1rem;
+}
+
+.nav-toggle {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #000;
+  padding: 0.5rem;
+}
+
+/* Sección De Iconos */
+
+.icon-bar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem;
+  margin-left: 0;
+  transition: transform 0.2s ease;
+}
+
+.icon-btn:hover {
+  transform: scale(1.1);
+}
+
+
+.mayorista-dashboard {
+  max-width: 1100px;
+  margin: 4rem auto;
+  display: grid;
+  gap: 3rem;
+  padding: 0 2rem;
+}
+
+.mayorista-dashboard h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  color: #222;
+}
+
+.btn-panel {
+  display: inline-block;
+  background-color: #000;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn-panel:hover {
+  background-color: #09b311;
+}
+
+
+/* Sección De Pantalla De Inicio */
+
+.hero-banner {
+  position: relative;
+  height: 93vh;
+  width: 202.2vh;
+  background:#0b0b0b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-content {
+  z-index: 2;
+}
+
+.hero-product {
+  width: 200px;
+  margin-bottom: 1rem;
+}
+
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://i.pinimg.com/736x/9a/e5/a4/9ae5a4ab8d1f16b223c5e28bdb026782.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 0.35; /* suaviza la saturación visual */
+  filter: contrast(1.1) brightness(1.05) saturate(0.85);
+  transition: filter 0.3s ease;
+}
+
+.cta-button {
+  background: #d6d3c7;
+  color: black;
+  border: none;
+  padding: 1.1rem 1.5rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 50px;
+  margin-top: 26rem;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.1);
+  transition: 0.6s;
+  background: #09b311;
+
+}
+
+.exclusivos-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.exclusivo-card {
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: 0;
+  width: 220px;
+  text-align: center;
+}
+
+.exclusivo-card img {
+  width: 100%;
+  border-radius: 0;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background-color: #09b311;
+  color: white;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+}
+
+/* Panel lateral izquierdo */
+.beneficios-panel {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  height: 100vh;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+  transition: left 0.4s ease;
+  padding: 2rem;
+  z-index: 1000;
+}
+
+.beneficios-panel.open {
+  left: 0;
+}
+
+.beneficios-panel h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.beneficios-list {
+  list-style: none;
+  padding: 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.beneficios-list li {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.close-beneficios {
+  margin-top: 2rem;
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: background 0.3s ease;
+}
+
+.close-beneficios:hover {
+  background-color: #09b311;
+}
+
+
+/* Sección De Compras Al Por Mayor */
+
+  .compra-mayorista {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.compra-mayorista h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.intro-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+.producto-card {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-radius: 0;
+  text-align: center;
+}
+
+.producto-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.producto-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.proveedor {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.rating {
+  font-size: 1rem;
+  color: #09b311;
+  margin-bottom: 1rem;
+}
+
+.btn-solicitar {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-solicitar:hover {
+  background-color: #09b311;
+}
+
+
+/* Sección De Historial */
+
+.historial-pedidos {
+  padding: 4rem 2rem;
+  max-width: 1100px;
+  margin: auto;
+  background-color: #fff;
+}
+
+.historial-pedidos h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.intro-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.tabla-pedidos {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.tabla-pedidos th,
+.tabla-pedidos td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.tabla-pedidos th {
+  background-color: #f4f4f4;
+  font-weight: 600;
+}
+
+.estado {
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.estado.completado {
+  background-color: #09b311;
+  color: white;
+}
+
+.estado.pendiente {
+  background-color: #09b311;
+  color: white;
+}
+
+.estado.enviado {
+  background-color: #09b311;
+  color: white;
+}
+
+.btn-repetir {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-repetir:hover {
+  background-color: #09b311;
+}
+
+.go-to-cart {
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.lanzamientos-mayorista {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.lanzamientos-mayorista h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.intro-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.grid-lanzamientos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+.lanzamiento-card {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-radius: 0;
+  text-align: center;
+}
+
+.lanzamiento-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.lanzamiento-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.precio-mayorista {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.tag-exclusivo,
+.tag-preventa,
+.tag-limitado {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background-color: #09b311;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+}
+
+.tag-preventa {
+  background-color: #09b311;
+}
+
+.tag-limitado {
+  background-color: #09b311;
+}
+
+.btn-solicitar {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btn-solicitar:hover {
+  background-color: #09b311;
+}
+
+/* Sección De Contacto Con Asesor */
+
+.contacto-asesor {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.contacto-asesor h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.intro-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.contacto-opciones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+.contacto-card {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border-radius: 0;
+  text-align: center;
+}
+
+.contacto-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.contacto-card p {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.btn-contacto {
+  background-color: #000;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.btn-contacto:hover {
+  background-color: #09b311;
+}
+
+
+/* Diseño De Panel De Beneficios Activos */
+.beneficios-panel {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 320px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 2px 0 12px rgba(0,0,0,0.15);
+  transition: left 0.4s ease;
+  padding: 2rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.beneficios-panel.open {
+  left: 0;
+}
+
+.beneficios-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.beneficios-header h2 {
+  font-size: 1.8rem;
+  color: #222;
+}
+
+.close-beneficios {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #000;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-beneficios:hover {
+  color: #09b311;
+}
+
+.beneficios-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.beneficio-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.beneficio-item span {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.btn-info {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-info:hover {
+  background-color: #09b311;
+}
+
+.btn-ir-beneficios {
+  background-color: #000;
+  color: white;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  margin-top: 2rem;
+}
+
+.btn-ir-beneficios:hover {
+  background-color: #09b311;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+  <div class="logo">F O C U S</div>
+
+
+    <nav>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-toggle">Solicitar Compra</button>
+        </li>
+      <a href="mayorista-historial.html" class="nav-item">
+        <button class="nav-toggle">Historial De Pedidos</button>
+      </a>
+        <li class="nav-item">
+          <button class="nav-toggle">Contacto</button>
+        </li>
+
+    <!-- Barra De Busqueda Oculta -->
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar productos..." />
+    </div>
+
+    <!-- Iconos de acción -->
+    <div class="icon-bar">
+      <button class="icon-btn" title="Buscar">
+        <img src="https://i.pinimg.com/736x/79/ce/10/79ce10e4c34077215b988139aec41dbe.jpg" alt="Buscar" width="31px" />
+      </button>
+
+      <a href="#" class="icon-btn" title="Perfil">
+        <img src="https://i.pinimg.com/736x/de/c6/4b/dec64b7b70d2072ed7046b2ce8f87b34.jpg" alt="Perfil" width="35px"/>
+      </a>
+
+      <button class="icon-btn" title="Carrito">
+        <img src="https://i.pinimg.com/1200x/7f/24/92/7f249252404646c08d90976505cb6937.jpg" alt="Carrito" width="35px"/>
+      </button>
+    </div>
+
+    <a href="#" class="icon-btn perfil-btn" title="Ver Beneficios">
+  <img src="https://i.pinimg.com/736x/e5/61/7b/e5617bc143450862cd62c28984c9e777.jpg" alt="Beneficios" width="35px"/>
+</a>
+  </header>
+
+  <!-- Pantalla de Inicio Mayorista -->
+<section class="hero-banner">
+  <div class="hero-overlay">
+    <h1 class="hero-title">F O C U S</h1>
+    <p class="hero-subtext">
+      Timeless style forged in grit and ambition.<br>
+      Tailored for those who lead, not follow.<br>
+      Inspired by the streets of Birmingham, refined for the modern gentleman.
+    </p>
+  </div>
+  <div class="hero-content">
+    <button class="cta-button">COMPRAR</button>
+  </div>
+</section>
+
+  <section class="compra-mayorista">
+  <h2>Solicitar Compra al por Mayor</h2>
+  <p class="intro-text">Selecciona los productos que deseas adquirir en volumen. Cada tarjeta representa una referencia disponible para compra mayorista.</p>
+
+  <div class="grid-productos">
+  <div class="producto-card">
+    <img src="https://i.pinimg.com/736x/0f/a7/24/0fa724b92b682df4ceccc8b487ba258f.jpg" alt="Camiseta Urban Cut" />
+    <h3>Lote Camisetas Urban Cut – 50 unidades</h3>
+    <p class="proveedor">Proveedor: FOCUS</p>
+    <div class="rating">★★★★★</div>
+ <button class="add-to-cart" data-product="CINTURÓN SMACK BELT" data-price="190000" data-img="img/cinturon-smack.jpg"> Cotizar </div>
+
+  <div class="producto-card">
+    <img src="https://i.pinimg.com/1200x/28/44/82/2844820b478a0935d7ff62a256b565c4.jpg" alt="Sudadera Black Edition" />
+    <h3>Pack Sudaderas Black Edition – Venta</h3>
+    <p class="proveedor">Proveedor: FOCUS</p>
+    <div class="rating">★★★★☆</div>
+ <button class="add-to-cart" data-product="CINTURÓN SMACK BELT" data-price="190000" data-img="img/cinturon-smack.jpg"> Cotizar </div>
+
+  <div class="producto-card">
+    <img src="https://i.pinimg.com/736x/a2/b4/e1/a2b4e170349da702eede570eae4cb5a6.jpg" alt="Short Tactical Fit" />
+    <h3>Combo Shorts Tactical Fit – 100 piezas disponibles</h3>
+    <p class="proveedor">Proveedor: FOCUS</p>
+    <div class="rating">★★★★★</div>
+ <button class="add-to-cart" data-product="CINTURÓN SMACK BELT" data-price="190000" data-img="img/cinturon-smack.jpg"> Cotizar </div>
+
+  <div class="producto-card">
+    <img src="https://i.pinimg.com/1200x/68/3e/c4/683ec4220775e09c5f53495b59a09a3a.jpg" alt="Sudadera Black Edition" />
+    <h3>Sudaderas Urban Core – Lote comercial x24</h3>
+    <p class="proveedor">Proveedor: FOCUS</p>
+    <div class="rating">★★★★☆</div>
+ <button class="add-to-cart" data-product="CINTURÓN SMACK BELT" data-price="190000" data-img="img/cinturon-smack.jpg"> Cotizar </div>
+
+  <div class="producto-card">
+    <img src="https://i.pinimg.com/1200x/a4/ae/39/a4ae39e3c89f144d41fb5aca38dc98dc.jpg" alt="Sudadera Black Edition" />
+    <h3>Sudaderas Midnight Fit – Venta exclusiva para distribuidores</h3>
+    <p class="proveedor">Proveedor: FOCUS</p>
+    <div class="rating">★★★★☆</div>
+ <button class="add-to-cart" data-product="CINTURÓN SMACK BELT" data-price="190000" data-img="img/cinturon-smack.jpg"> Cotizar </div>
+
+  <div class="producto-card">
+    <img src="https://i.pinimg.com/1200x/29/e3/f5/29e3f529efe33c3cc81e9cb26d2256d8.jpg" alt="Sudadera Black Edition" />
+    <h3>Sudaderas Bold Street Edition – Pack x36 unidades</h3>
+    <p class="proveedor">Proveedor: FOCUS</p>
+    <div class="rating">★★★★☆</div>
+ <button class="add-to-cart" data-product="CINTURÓN SMACK BELT" data-price="190000" data-img="img/cinturon-smack.jpg"> Cotizar </div>
+
+  <div class="producto-card">
+    <img src="https://i.pinimg.com/736x/4e/0d/05/4e0d05f136fac03fcd53bff054abdd53.jpg" alt="Sudadera Black Edition" />
+    <h3>Preventa Mayorista – Sudadera Premium 2025 (x30)</h3>
+    <p class="proveedor">Proveedor: FOCUS</p>
+    <div class="rating">★★★★☆</div>
+ <button class="add-to-cart" data-product="CINTURÓN SMACK BELT" data-price="190000" data-img="img/cinturon-smack.jpg"> Cotizar </div>
+
+  <div class="producto-card">
+    <img src="https://i.pinimg.com/1200x/a2/54/0d/a2540d1b7341c8c2470e2d1f4cec669f.jpg" alt="Sudadera Black Edition" />
+    <h3>Caja Comercial – Sudaderas Essential Fit x48</h3>
+    <p class="proveedor">Proveedor: FOCUS</p>
+    <div class="rating">★★★★☆</div>
+ <button class="add-to-cart" data-product="CINTURÓN SMACK BELT" data-price="190000" data-img="img/cinturon-smack.jpg"> Cotizar </div>
+</div>
+
+  </div>
+</section>
+
+
+<section class="lanzamientos-mayorista">
+  <h2>Lanzamientos Exclusivos para Distribuidores</h2>
+  <p class="intro-text">Accede antes que nadie a nuestras piezas más recientes. Esta sección está reservada para clientes mayoristas registrados.</p>
+
+  <div class="grid-lanzamientos">
+    <div class="lanzamiento-card">
+      <img src="https://i.pinimg.com/736x/ff/67/b7/ff67b7ba65ac77ea0fa5be48fcf5b503.jpg" alt="Buso Oversize Black" />
+      <h3>Buso Essential Oversize – Edición Limitada</h3>
+      <p class="precio-mayorista">Precio Mayorista: $95.000 COP</p>
+      <span class="tag-exclusivo">Exclusivo</span>
+      <br>
+      <button class="btn-solicitar">Solicitar Stock</button>
+    </div>
+
+    <div class="lanzamiento-card">
+      <img src="https://i.pinimg.com/736x/3e/4c/5e/3e4c5ea456ea2e32157a1e4568f18f7c.jpg" alt="Gorra Urban Snapback" />
+      <h3>Gorra Urban Snapback – Preventa Distribuidores</h3>
+      <p class="precio-mayorista">Precio Mayorista: $45.000 COP</p>
+      <span class="tag-preventa">Preventa</span>
+      <br>
+      <button class="btn-solicitar">Solicitar Stock</button>
+    </div>
+
+    <div class="lanzamiento-card">
+      <img src="https://i.pinimg.com/736x/dd/13/e4/dd13e4363d8731a185fb388bdccaf2a0.jpg" alt="CRO Statement Set" />
+      <h3>Set C.R.O Statement – Paquete x20 unidades</h3>
+      <p class="precio-mayorista">Precio Mayorista: $160.000 COP</p>
+      <span class="tag-limitado">Stock Limitado</span>
+      <br>
+      <button class="btn-solicitar">Solicitar Stock</button>
+    </div>
+
+    <div class="lanzamiento-card">
+      <img src="https://i.pinimg.com/736x/4f/e6/46/4fe6461c30534365fe4a19ec1382b973.jpg" alt="Camiseta Modern Fit" />
+      <h3>Camiseta Modern Fit Ivory – Exclusiva</h3>
+      <p class="precio-mayorista">Precio Mayorista: $55.000 COP</p>
+      <span class="tag-exclusivo">Exclusivo</span>
+      <br>
+      <button class="btn-solicitar">Solicitar Stock</button>
+    </div>
+  </div>
+</section>
+
+  <!-- Sección de Contacto con asesor -->
+<section class="contacto-asesor">
+  <h2>Contacto Directo con Asesor</h2>
+  <p class="intro-text">¿Tienes dudas sobre tus pedidos, cotizaciones o lanzamientos? Nuestro equipo comercial está listo para ayudarte.</p>
+
+  <div class="contacto-opciones">
+    <div class="contacto-card">
+      <h3>Escríbenos por WhatsApp</h3>
+      <p>Atención rápida y personalizada.</p>
+      <a href="https://wa.me/576192446400" target="_blank" class="btn-contacto">Abrir WhatsApp</a>
+    </div>
+
+    <div class="contacto-card">
+      <h3>Correo Comercial</h3>
+      <p>Envía tu solicitud a: <strong>asesor@focus.com</strong></p>
+      <a href="mailto:asesor@focus.com" class="btn-contacto">Enviar Correo</a>
+    </div>
+
+    <div class="contacto-card">
+      <h3>Agendar Llamada</h3>
+      <p>Coordina una reunión con nuestro equipo.</p>
+      <a href="agenda.html" class="btn-contacto">Agendar Ahora</a>
+    </div>
+  </div>
+</section>
+
+  <!-- Beneficios activos (bandeja desplegable) -->
+<aside class="beneficios-panel">
+  <div class="beneficios-header">
+    <h2>Beneficios Activos</h2>
+    <button class="close-beneficios" title="Cerrar panel">✕</button>
+  </div>
+
+  <ul class="beneficios-list">
+    <li>
+      <div class="beneficio-item">
+        <span>✔ 20% de descuento en compras mayores a $1.000.000</span>
+        <button class="btn-info">Ver detalle</button>
+      </div>
+    </li>
+    <li>
+      <div class="beneficio-item">
+        <span>✔ Acceso anticipado a lanzamientos exclusivos</span>
+        <button class="btn-info">Ver detalle</button>
+      </div>
+    </li>
+    <li>
+      <div class="beneficio-item">
+        <span>✔ Asesor comercial asignado</span>
+        <button class="btn-info">Ver detalle</button>
+      </div>
+    </li>
+    <li>
+      <div class="beneficio-item">
+        <span>✔ Envíos prioritarios sin costo</span>
+        <button class="btn-info">Ver detalle</button>
+      </div>
+    </li>
+    <li>
+      <div class="beneficio-item">
+        <span>✔ Preventa de ediciones limitadas</span>
+        <button class="btn-info">Ver detalle</button>
+      </div>
+    </li>
+  </ul>
+
+  <a href="beneficios.html" class="btn-ir-beneficios">Ir a pestaña de beneficios</a>
+</aside>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 FOCUS. Todos los derechos reservados.</p>
+    <p>Contacto: contacto@focus.com | WhatsApp: +57 300 123 4567</p>
+  </footer>
+
+  <script>
+    const rol = localStorage.getItem("rolActivo");
+
+if (rol !== "clienteMayorista") {
+  alert("Acceso denegado. Esta sección es solo para clientes mayoristas.");
+  window.location.href = "login.html";
+}
+
+  </script>
+
+    <!-- Panel Del Historial De Pedidos -->
+<aside class="cart-panel">
+  <h2>Historial De Pedidos</h2>
+  <ul class="cart-items"></ul>
+  <button class="close-cart">Cerrar</button>
+  <br>
+  <br>
+  <br>
+  <a class="go-to-cart" href="mayorista-historial.html">Ir A Historial</a>
+</aside>
+
+
+<script>
+
+    // Botón De Agregar Pedido
+
+document.querySelectorAll('.add-to-cart').forEach(button => {
+  button.addEventListener('click', () => {
+    const product = button.dataset.product;
+    const price = button.dataset.price;
+    const img = button.dataset.img;
+
+    const cartItem = document.createElement('li');
+    cartItem.innerHTML = `
+      <img src="${img}" alt="${product}" width="50" />
+      <span>${product}</span> - <strong>$${price} COP</strong>
+    `;
+    document.querySelector('.cart-items').appendChild(cartItem);
+
+    document.querySelector('.cart-panel').classList.add('open');
+  });
+});
+</script>
+
+
+<!-- Script para agregar Panel De Beneficios Activos -->
+
+ <script>
+  const perfilBtn = document.querySelector('.perfil-btn');
+  const beneficiosPanel = document.querySelector('.beneficios-panel');
+  const closeBtn = document.querySelector('.close-beneficios');
+
+  perfilBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    beneficiosPanel.classList.add('open');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    beneficiosPanel.classList.remove('open');
+  });
+</script>
+
+    <script src="main.js"></script>
+</body>
+</html>

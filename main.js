@@ -124,3 +124,41 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
     document.querySelector('.cart-panel').classList.add('open');
   });
 });
+
+// Simulación De Datos
+
+const usuariosSimulados = [
+  { email: "admin@focus.com", password: "admin123", rol: "administrador" },
+  { email: "empleado@focus.com", password: "empleado123", rol: "empleado" },
+  { email: "asesor@focus.com", password: "asesor123", rol: "asesor" },
+  { email: "mayorista@focus.com", password: "mayorista123", rol: "clienteMayorista" }
+];
+
+document.querySelector("form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  const usuario = usuariosSimulados.find(u => u.email === email && u.password === password);
+
+  if (usuario) {
+    localStorage.setItem("rolActivo", usuario.rol);
+    switch (usuario.rol) {
+      case "administrador":
+        window.location.href = "admin.html";
+        break;
+      case "empleado":
+        window.location.href = "empleado.html";
+        break;
+      case "asesor":
+        window.location.href = "asesor.html";
+        break;
+      case "clienteMayorista":
+        window.location.href = "mayorista.html";
+        break;
+    }
+  } else {
+    alert("Credenciales incorrectas");
+  }
+});

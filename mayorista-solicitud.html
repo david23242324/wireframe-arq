@@ -3,121 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Registro</title>
+  <title>Solicitud Cliente Mayorista</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .solicitud-container {
+      max-width: 800px;
+      margin: 4rem auto;
       background: #fff;
-      color: #000;
-      padding: 0.2rem 2rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    }
-
-    .logo-link {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .nav-menu {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-item {
-      position: relative;
-    }
-
-    .nav-toggle {
-      background: none;
-      border: none;
-      font-family: inherit;
-      font-size: 1.1rem;
-      cursor: pointer;
-      color: #000;
-      padding: 0.5rem;
-    }
-
-    .submenu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #fff;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border-radius: 0;
-      padding: 1rem 2rem;
-      display: none;
-      flex-direction: column;
-      min-width: 180px;
-      z-index: 100;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .nav-item:hover .submenu {
-      display: flex;
-    }
-
-    .submenu li {
-      padding: 0.5rem 1rem;
-    }
-
-    .submenu li a {
-      color: #333;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: 1s;
-    }
-
-    .submenu li a:hover {
-      color: #000;
-      font-weight: bold;
-    }
-
-    .icon-bar {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
-
-    .icon-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.2rem;
-      margin-left: 4.8rem;
-      transition: transform 0.2s ease;
-    }
-
-    .icon-btn:hover {
-      transform: scale(1.1);
-    }
-
-    .login-container {
-      max-width: 400px;
-      margin: 5rem auto;
-      background: #fff;
-      padding: 2rem;
-      padding: 2rem 3.5rem 2rem 2rem;
+      padding: 2.5rem;
       box-shadow: 0 8px 24px rgba(0,0,0,0.1);
       border-radius: 0;
     }
 
-    .login-container h2 {
-      text-align: center;
+    .solicitud-container h2 {
+      font-size: 2rem;
       margin-bottom: 1.5rem;
-      font-size: 1.8rem;
       color: #222;
+      text-align: center;
     }
 
     .form-group {
@@ -131,7 +33,8 @@
       color: #333;
     }
 
-    .form-group input {
+    .form-group input,
+    .form-group textarea {
       width: 100%;
       padding: 0.8rem;
       border: 1px solid #ccc;
@@ -140,11 +43,13 @@
       background-color: #f9f9f9;
     }
 
+    .form-group textarea {
+      resize: vertical;
+    }
+
     .form-actions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 1.5rem;
+      margin-top: 2rem;
+      text-align: right;
     }
 
     .form-actions button {
@@ -162,24 +67,20 @@
       background-color: #09b311;
     }
 
-    .form-actions a {
-      color: #092f99;
+        .logo-link {
       text-decoration: none;
-      font-size: 0.9rem;
+      color: inherit;
     }
 
-    .form-actions a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
 
   <!-- Header -->
   <header>
-    <a href="index.html" class="logo-link">
-      <div class="logo">F O C U S</div>
-    </a>
+<a href="index.html" class="logo-link">
+  <div class="logo">F O C U S</div>
+</a>
 
     <nav>
       <ul class="nav-menu">
@@ -229,41 +130,67 @@
         <img src="https://i.pinimg.com/736x/79/ce/10/79ce10e4c34077215b988139aec41dbe.jpg" alt="Buscar" width="31px" />
       </button>
 
+      <a href="login.html" class="icon-btn" title="Perfil">
+        <img src="https://i.pinimg.com/736x/de/c6/4b/dec64b7b70d2072ed7046b2ce8f87b34.jpg" alt="Perfil" width="35px"/>
+      </a>
+
+      <button class="icon-btn" title="Carrito">
+        <img src="https://i.pinimg.com/1200x/7f/24/92/7f249252404646c08d90976505cb6937.jpg" alt="Carrito" width="35px"/>
+      </button>
     </div>
   </header>
 
-  <!-- Registro -->
-  <div class="login-container">
-    <h2>Crear Cuenta</h2>
-    <form action="dashboard.html" method="POST">
+  <!-- Contenido -->
+  <section class="solicitud-container">
+    <h2>Formulario de Solicitud Mayorista</h2>
+    <form>
       <div class="form-group">
-        <label for="name">Nombre completo</label>
-        <input type="text" id="name" name="name" required />
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" required />
       </div>
       <div class="form-group">
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" name="email" required />
+        <label for="empresa">Nombre de la empresa</label>
+        <input type="text" id="empresa" name="empresa" required />
       </div>
       <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password" required />
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="correo" required />
       </div>
       <div class="form-group">
-        <label for="confirm">Confirmar contraseña</label>
-        <input type="password" id="confirm" name="confirm" required />
+        <label for="telefono">Teléfono de contacto</label>
+        <input type="tel" id="telefono" name="telefono" required />
+      </div>
+      <div class="form-group">
+        <label for="nit">NIT o RUT</label>
+        <input type="text" id="nit" name="nit" required />
+      </div>
+      <div class="form-group">
+        <label for="direccion">Dirección comercial</label>
+        <input type="text" id="direccion" name="direccion" required />
+      </div>
+      <div class="form-group">
+        <label for="motivo">¿Por qué deseas ser cliente mayorista?</label>
+        <textarea id="motivo" name="motivo" rows="4" required></textarea>
       </div>
       <div class="form-actions">
-        <button type="submit">Registrarse</button>
-        <a href="login.html">¿Ya tienes cuenta?</a>
+        <button type="submit">Enviar Solicitud</button>
       </div>
     </form>
-  </div>
+  </section>
 
     <!-- Footer -->
   <footer>
     <p>© 2025 FOCUS. Todos los derechos reservados.</p>
     <p>Contacto: contacto@focus.com | WhatsApp: +57 300 123 4567</p>
   </footer>
+
+  <script>
+  document.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Tu solicitud fue enviada correctamente. Recibirás una respuesta a través de tu correo Gmail.");
+    this.reset(); // Limpia el formulario
+  });
+</script>
 
   <script src="main.js"></script>
 </body>

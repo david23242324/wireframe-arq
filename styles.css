@@ -34,7 +34,7 @@ header {
 
 .nav-menu :hover {
   transition: 1s;
-  color: #6d0dda;
+  color: #09b311;
 
 }
 
@@ -224,7 +224,7 @@ header {
 .hero-banner {
   position: relative;
   height: 93vh;
-  width: 207.7vh;
+  width: 202.2vh;
   background:#0b0b0b;
   display: flex;
   justify-content: center;
@@ -276,7 +276,7 @@ header {
 .cta-button:hover {
   transform: scale(1.1);
   transition: 0.6s;
-  background: #6d0dda;
+  background: #09b311;
 
 }
 
@@ -308,7 +308,7 @@ header {
 }
 
 .product-row::-webkit-scrollbar-thumb {
-  background: #6d0dda;
+  background: #09b311;
   border-radius: 4px;
 }
 
@@ -342,7 +342,7 @@ header {
 
 .price {
   font-weight: bold;
-  color: #6d0dda;
+  color: #09b311;
   margin-bottom: 0.3rem;
 }
 
@@ -353,6 +353,42 @@ header {
 
 .rating span {
   color: #888;
+}
+
+/* Sección De Cliente Mayorista */
+
+.mayorista-invite {
+  background: #fff;
+  padding: 2rem 2rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-top: 0.2avh;
+}
+
+.mayorista-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.mayorista-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.mayorista-btn {
+  background-color: #000000;
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: background 0.3s ease;
+  display: inline-block;
+}
+
+.mayorista-btn:hover {
+  background-color: #09b311;
 }
 
 
@@ -397,7 +433,7 @@ header {
 
 .accessory-card .price {
   font-weight: bold;
-  color: #6d0dda;
+  color: #09b311;
   margin-bottom: 0.3rem;
 }
 
@@ -410,7 +446,7 @@ header {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #6d0dda;
+  background: #09b311;
   color: white;
   border: none;
   font-size: 2rem;
@@ -432,7 +468,7 @@ header {
 
 .add-to-cart {
   margin-top: 0.8rem;
-  background: #6d0dda;
+  background: #000000;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -444,7 +480,7 @@ header {
 }
 
 .add-to-cart:hover {
-  background: #4a0aa5;
+  background: #09b311;
 }
 
 

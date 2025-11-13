@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Historial de Pedidos</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .historial-container {
+      max-width: 1100px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      background-color: #fff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .historial-container h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #222;
+      padding-top: 2rem;
+    }
+
+    .intro-text {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    th {
+      background-color: #f4f4f4;
+      font-weight: 600;
+    }
+
+    .estado {
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .estado.completado {
+      background-color: #09b311;
+      color: white;
+    }
+
+    .estado.pendiente {
+      background-color: #f5a623;
+      color: white;
+    }
+
+    .estado.enviado {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .btn-repetir {
+      background-color: #000;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-repetir:hover {
+      background-color: #09b311;
+    }
+
+    .logo-link {
+  text-decoration: none;
+  color: inherit;
+}
+  </style>
+</head>
+<body>
+
+      <!-- Header -->
+  <header>
+<a href="mayorista.html" class="logo-link">
+  <div class="logo">F O C U S</div>
+</a>
+
+    <nav>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-toggle">Solicitar Compra</button>
+        </li>
+        
+        <li class="nav-item">
+          <button class="nav-toggle">Contacto</button>
+        </li>
+
+    <!-- Barra De Busqueda Oculta -->
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar productos..." />
+    </div>
+
+    <!-- Iconos de acción -->
+    <div class="icon-bar">
+      <button class="icon-btn" title="Buscar">
+        <img src="https://i.pinimg.com/736x/79/ce/10/79ce10e4c34077215b988139aec41dbe.jpg" alt="Buscar" width="31px" />
+      </button>
+
+      <a href="#" class="icon-btn" title="Perfil">
+        <img src="https://i.pinimg.com/736x/de/c6/4b/dec64b7b70d2072ed7046b2ce8f87b34.jpg" alt="Perfil" width="35px"/>
+      </a>
+
+      <button class="icon-btn" title="Carrito">
+        <img src="https://i.pinimg.com/1200x/7f/24/92/7f249252404646c08d90976505cb6937.jpg" alt="Carrito" width="35px"/>
+      </button>
+    </div>
+  </header>
+
+  <div class="historial-container">
+    <h2>Historial de Pedidos</h2>
+    <p class="intro-text">Consulta tus pedidos anteriores, revisa cantidades, estados y repite compras fácilmente.</p>
+
+    <table>
+        <thead>
+    <tr>
+      <th>ID Pedido</th>
+      <th>Fecha</th>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+      <th>Cancelación</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>#FOC-001</td>
+      <td>10/11/2025</td>
+      <td>Lote Camisetas Urban Cut</td>
+      <td>50</td>
+      <td><span class="estado completado">Completado</span></td>
+      <td><button class="btn-repetir">Repetir Pedido</button></td>
+      <td><button class="btn-repetir">Retirar Pedido</button></td>
+    </tr>
+    <tr>
+      <td>#FOC-002</td>
+      <td>09/11/2025</td>
+      <td>Pack Sudaderas Midnight Fit</td>
+      <td>36</td>
+      <td><span class="estado pendiente">Pendiente</span></td>
+      <td><button class="btn-repetir">Repetir Pedido</button></td>
+      <td><button class="btn-repetir">Retirar Pedido</button></td>
+    </tr>
+    <tr>
+      <td>#FOC-003</td>
+      <td>08/11/2025</td>
+      <td>Combo Shorts Tactical Fit</td>
+      <td>100</td>
+      <td><span class="estado enviado">Enviado</span></td>
+      <td><button class="btn-repetir">Repetir Pedido</button></td>
+      <td><button class="btn-repetir">Retirar Pedido</button></td>
+    </tr>
+    <tr>
+      <td>#FOC-004</td>
+      <td>07/11/2025</td>
+      <td>Caja Gafas Urban Vision</td>
+      <td>80</td>
+      <td><span class="estado completado">Completado</span></td>
+      <td><button class="btn-repetir">Repetir Pedido</button></td>
+      <td><button class="btn-repetir">Retirar Pedido</button></td>
+    </tr>
+    <tr>
+      <td>#FOC-005</td>
+      <td>06/11/2025</td>
+      <td>Preventa Sudaderas Premium 2025</td>
+      <td>30</td>
+      <td><span class="estado pendiente">Pendiente</span></td>
+      <td><button class="btn-repetir">Repetir Pedido</button></td>
+      <td><button class="btn-repetir">Retirar Pedido</button></td>
+    </tr>
+        <tr>
+      <td>#FOC-001</td>
+      <td>10/11/2025</td>
+      <td>Lote Camisetas Urban Cut</td>
+      <td>50</td>
+      <td><span class="estado completado">Completado</span></td>
+      <td><button class="btn-repetir">Repetir Pedido</button></td>
+      <td><button class="btn-repetir">Retirar Pedido</button></td>
+    </tr>
+    <tr>
+      <td>#FOC-006</td>
+      <td>05/11/2025</td>
+      <td>Pack Anillos Bold Steel</td>
+      <td>200</td>
+      <td><span class="estado enviado">Enviado</span></td>
+      <td><button class="btn-repetir">Repetir Pedido</button></td>
+      <td><button class="btn-repetir">Retirar Pedido</button></td>
+    </tr>
+    <tr>
+      <td>#FOC-007</td>
+      <td>04/11/2025</td>
+      <td>Combo Gorros Arctic Line</td>
+      <td>60</td>
+      <td><span class="estado completado">Completado</span></td>
+      <td><button class="btn-repetir">Repetir Pedido</button></td>
+      <td><button class="btn-repetir">Retirar Pedido</button></td>
+    </tr>
+        <tr>
+      <td>#FOC-001</td>
+      <td>10/11/2025</td>
+      <td>Lote Camisetas Urban Cut</td>
+      <td>50</td>
+      <td><span class="estado completado">Completado</span></td>
+      <td><button class="btn-repetir">Repetir Pedido</button></td>
+      <td><button class="btn-repetir">Retirar Pedido</button></td>
+    </tr>
+      </tbody>
+    </table>
+  </div>
+
+    <!-- Footer -->
+  <footer>
+    <p>© 2025 FOCUS. Todos los derechos reservados.</p>
+    <p>Contacto: contacto@focus.com | WhatsApp: +57 300 123 4567</p>
+  </footer>
+
+</body>
+</html>
