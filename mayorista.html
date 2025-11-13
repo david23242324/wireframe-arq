@@ -94,7 +94,7 @@
 .hero-banner {
   position: relative;
   height: 93vh;
-  width: 202.2vh;
+  width: 206.2vh;
   background:#0b0b0b;
   display: flex;
   justify-content: center;
@@ -680,8 +680,8 @@
         <img src="https://i.pinimg.com/736x/de/c6/4b/dec64b7b70d2072ed7046b2ce8f87b34.jpg" alt="Perfil" width="35px"/>
       </a>
 
-      <button class="icon-btn" title="Carrito">
-        <img src="https://i.pinimg.com/1200x/7f/24/92/7f249252404646c08d90976505cb6937.jpg" alt="Carrito" width="35px"/>
+      <button class="icon-btn" title="Pedidos">
+        <img src="https://i.pinimg.com/736x/11/10/0e/11100ef56c86518e60068da9d4bb8e85.jpg" alt="Pedidos" width="35px"/>
       </button>
     </div>
 
@@ -949,7 +949,24 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
   closeBtn.addEventListener('click', () => {
     beneficiosPanel.classList.remove('open');
   });
+
+  // Sección De Carrito 
+const cartBtn = document.querySelector('.icon-btn[title="Pedidos"]');
+const cartPanel = document.querySelector('.cart-panel');
+const closeCart = document.querySelector('.close-cart');
+
+if (cartBtn && cartPanel && closeCart) {
+  cartBtn.addEventListener('click', () => {
+    cartPanel.classList.add('open');
+  });
+
+  closeCart.addEventListener('click', () => {
+    cartPanel.classList.remove('open');
+  });
+}
 </script>
+
+
 
     <script src="main.js"></script>
 </body>
