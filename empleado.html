@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interfaz De Empleado</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+/* Header */
+
+.nav-menu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.nav-menu :hover {
+  transition: 1s;
+  color: #ffffff;
+}
+
+.nav-item {
+  margin-right: 0.5rem;
+  padding: 0.1rem;
+}
+
+.nav-toggle {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 0.5rem;
+}
+
+/* Sección De Iconos */
+
+.icon-bar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem;
+  margin-left: 0;
+  transition: transform 0.2s ease;
+}
+
+.icon-btn:hover {
+  transform: scale(1.1);
+}
+
+
+.mayorista-dashboard {
+  max-width: 1100px;
+  margin: 4rem auto;
+  display: grid;
+  gap: 3rem;
+  padding: 0 2rem;
+}
+
+.mayorista-dashboard h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  color: #222;
+}
+
+.btn-panel {
+  display: inline-block;
+  background-color: #000;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn-panel:hover {
+  background-color: #079cfb;
+}
+
+
+/* Sección De Pantalla De Inicio */
+
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 93vh;
+  background: #0b0b0b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+.hero-content {
+  z-index: 2;
+}
+
+.hero-product {
+  width: 200px;
+  margin-bottom: 1rem;
+}
+
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://i.pinimg.com/736x/87/2e/7c/872e7c22fd27970f2c68885351867c03.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: 0.35; /* suaviza la saturación visual */
+  filter: contrast(1.1) brightness(1.05) saturate(0.85);
+  transition: filter 0.3s ease;
+}
+
+.cta-button {
+  background: #d6d3c7;
+  color: black;
+  border: none;
+  padding: 1.1rem 1.5rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 50px;
+  margin-top: 26rem;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.1);
+  transition: 0.6s;
+  background: #079cfb;
+
+}
+
+.exclusivos-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.exclusivo-card {
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: 0;
+  width: 220px;
+  text-align: center;
+}
+
+.exclusivo-card img {
+  width: 100%;
+  border-radius: 0;
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background-color: #079cfb;
+  color: white;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+}
+
+/* Panel lateral izquierdo */
+.beneficios-panel {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  height: 100vh;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+  transition: left 0.4s ease;
+  padding: 2rem;
+  z-index: 1000;
+}
+
+.beneficios-panel.open {
+  left: 0;
+}
+
+.beneficios-panel h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.beneficios-list {
+  list-style: none;
+  padding: 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.beneficios-list li {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.close-beneficios {
+  margin-top: 2rem;
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: background 0.3s ease;
+}
+
+.close-beneficios:hover {
+  background-color: #079cfb;
+}
+
+.perfil-acordeon {
+  position: relative;
+  display: inline-block;
+}
+
+.perfil-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem;
+  transition: transform 0.2s ease;
+}
+
+.perfil-toggle:hover {
+  transform: scale(1.1);
+}
+
+.perfil-panel {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  padding: 1rem;
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  z-index: 1000;
+}
+
+.perfil-panel.open {
+  display: flex;
+}
+
+.perfil-opcion {
+  background-color: #000;
+  color: white;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-align: center;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.perfil-opcion:hover {
+  background-color: #079cfb;
+  color: white;
+  border-color: #079cfb;
+}
+
+/* Sección De Panel De Tareas */
+
+.panel-empleado {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+  background-color: #fff;
+  text-align: center;
+}
+
+.panel-empleado h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.intro-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+      margin-left: 15rem;
+
+}
+
+.grid-empleado {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.card-empleado {
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-empleado:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.card-empleado h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.card-empleado p {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.btn-ir {
+  background-color: #000;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-ir:hover {
+  background-color: #079cfb;
+}
+
+.dashboard-empleado {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background-color: #fff;
+}
+
+.dashboard-empleado h2 {
+    margin-left: 15rem;
+}
+
+
+.panel-acceso {
+  flex: 1 1 55%;
+}
+
+/* Sección De Barras */
+
+.panel-estadisticas {
+  flex: 1 1 40%;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 2rem;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.panel-estadisticas h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.barra-estadistica {
+  margin-bottom: 1.5rem;
+}
+
+.barra-estadistica label {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.barra {
+  background-color: #333;
+  border-radius: 50px;
+  overflow: hidden;
+  height: 20px;
+}
+
+.relleno {
+  height: 100%;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: right;
+  padding-right: 0.5rem;
+  line-height: 20px;
+}
+
+/* Colores personalizados */
+.relleno.gestion {
+  background-color: #079cfb;
+}
+
+.relleno.pedidos {
+  background-color: #079cfb;
+}
+
+.relleno.reportes {
+  background-color: #079cfb;
+}
+
+@media (max-width: 768px) {
+  .dashboard-empleado {
+    flex-direction: column;
+  }
+
+  .panel-acceso,
+  .panel-estadisticas {
+    flex: 1 1 100%;
+  }
+}
+
+/* Sección De Estadisticas De Reportes Generados */
+
+.preview-reportes {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 3rem 2rem;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.preview-reportes h3 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.stats-reportes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-box {
+  background-color: black;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.stat-box h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+}
+
+.stat-num {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #079cfb;
+}
+
+.stat-date {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #079cfb;
+}
+
+.btn-ir-reportes {
+  background-color: #000;
+  color: white;
+  padding: 0.6rem 1.2rem 1rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  display: inline-block;
+}
+
+.btn-ir-reportes:hover {
+  background-color: #079cfb;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+  <div class="logo">F O C U S</div>
+
+
+    <nav>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <button class="nav-toggle">Solicitar Compra</button>
+        </li>
+      <a href="mayorista-historial.html" class="nav-item">
+        <button class="nav-toggle">Historial De Pedidos</button>
+      </a>
+        <li class="nav-item">
+          <button class="nav-toggle">Contacto</button>
+        </li>
+
+    <!-- Barra De Busqueda Oculta -->
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar productos..." />
+    </div>
+
+    <!-- Iconos de acción -->
+    <div class="icon-bar">
+      <button class="icon-btn" title="Buscar">
+        <img src="https://i.pinimg.com/736x/79/ce/10/79ce10e4c34077215b988139aec41dbe.jpg" alt="Buscar" width="31px" />
+      </button>
+
+<div class="perfil-acordeon">
+  <button class="perfil-toggle" title="Opciones de usuario">
+    <img src="https://i.pinimg.com/736x/de/c6/4b/dec64b7b70d2072ed7046b2ce8f87b34.jpg" alt="Perfil" width="35px"/>
+  </button>
+
+  <div class="perfil-panel">
+    <a href="perfil.html" class="perfil-opcion"> Ver Perfil</a>
+    <a href="configuracion.html" class="perfil-opcion"> Configuración</a>
+    <button id="cerrar-sesion" class="perfil-opcion"> Cerrar sesión</button>
+  </div>
+</div>
+
+      <button class="icon-btn" title="Pedidos">
+        <img src="https://i.pinimg.com/736x/11/10/0e/11100ef56c86518e60068da9d4bb8e85.jpg" alt="Pedidos" width="35px"/>
+      </button>
+    </div>
+
+  </header>
+
+
+
+<section class="dashboard-empleado">
+  <div class="panel-acceso">
+    <h2>👷 Panel de Empleado</h2>
+    <p class="intro-text">Selecciona una función para continuar.</p>
+
+    <div class="grid-empleado">
+      <a href="empleado-gestion.html" class="card-empleado">
+        <div class="card-icon">🛠</div>
+        <h3>Gestión de Productos</h3>
+        <p>Editar, eliminar y filtrar productos por categoría.</p>
+        <span class="btn-ir">Acceder</span>
+      </a>
+
+      <a href="empleado-supervision.html" class="card-empleado">
+        <div class="card-icon">📦</div>
+        <h3>Supervisión de Pedidos</h3>
+        <p>Revisar estados, clientes y fechas.</p>
+        <span class="btn-ir">Acceder</span>
+      </a>
+
+      <a href="empleado-reportes.html" class="card-empleado">
+        <div class="card-icon">📊</div>
+        <h3>Generación de Reportes</h3>
+        <p>Exportar datos en PDF o Excel.</p>
+        <span class="btn-ir">Acceder</span>
+      </a>
+
+      <a href="empleado-documentos.html" class="card-empleado">
+        <div class="card-icon">📁</div>
+        <h3>Gestión Documental Interna</h3>
+        <p>Sube, consulta y organiza archivos internos por categoría.</p>
+        <span class="btn-ir">Acceder</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Sección De Estadísticas De Reportes Generados -->
+
+<section class="preview-reportes">
+  <h3>📊 Previsualización de Reportes</h3>
+  <div class="stats-reportes">
+    <div class="stat-box">
+      <h4>Total de Reportes</h4>
+      <p class="stat-num">24</p>
+    </div>
+    <div class="stat-box">
+      <h4>PDF Generados</h4>
+      <p class="stat-num">15</p>
+    </div>
+    <div class="stat-box">
+      <h4>Excel Generados</h4>
+      <p class="stat-num">9</p>
+    </div>
+    <div class="stat-box">
+      <h4>Último Reporte</h4>
+      <br>
+      <p class="stat-date">16/11/2025</p>
+    </div>
+  </div>
+
+  <a href="empleado-reportes.html" class="btn-ir-reportes">Ir a Generación de Reportes</a>
+</section>
+
+
+  <!-- Sección De Panel De Estadísticas -->
+
+  <div class="panel-estadisticas">
+    <h3>📈 Estadísticas Operativas</h3>
+
+    <div class="barra-estadistica">
+      <label>Productos actualizados</label>
+      <div class="barra">
+        <div class="relleno gestion" style="width: 78%;">78%</div>
+      </div>
+    </div>
+
+    <div class="barra-estadistica">
+      <label>Pedidos procesados</label>
+      <div class="barra">
+        <div class="relleno pedidos" style="width: 64%;">64%</div>
+      </div>
+    </div>
+
+    <div class="barra-estadistica">
+      <label>Reportes generados</label>
+      <div class="barra">
+        <div class="relleno reportes" style="width: 52%;">52%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 FOCUS. Todos los derechos reservados.</p>
+    <p>Contacto: contacto@focus.com | WhatsApp: +57 300 123 4567</p>
+  </footer>
+
+  <script>
+    const rol = localStorage.getItem("rolActivo");
+
+if (rol !== "empleado") {
+  alert("Acceso denegado. Esta sección es solo para empleados.");
+  window.location.href = "login.html";
+}
+
+  </script>
+
+    <!-- Panel Del Historial De Pedidos -->
+<aside class="cart-panel">
+  <h2>Historial De Pedidos</h2>
+  <ul class="cart-items"></ul>
+  <button class="close-cart">Cerrar</button>
+  <br>
+  <br>
+  <br>
+  <a class="go-to-cart" href="">Ir A Historial</a>
+</aside>
+
+
+<script>
+
+    // Botón De Agregar Pedido
+
+document.querySelectorAll('.add-to-cart').forEach(button => {
+  button.addEventListener('click', () => {
+    const product = button.dataset.product;
+    const price = button.dataset.price;
+    const img = button.dataset.img;
+
+    const cartItem = document.createElement('li');
+    cartItem.innerHTML = `
+      <img src="${img}" alt="${product}" width="50" />
+      <span>${product}</span> - <strong>$${price} COP</strong>
+    `;
+    document.querySelector('.cart-items').appendChild(cartItem);
+
+    document.querySelector('.cart-panel').classList.add('open');
+  });
+});
+</script>
+
+
+
+ <script>
+  // Sección De Carrito 
+const cartBtn = document.querySelector('.icon-btn[title="Pedidos"]');
+const cartPanel = document.querySelector('.cart-panel');
+const closeCart = document.querySelector('.close-cart');
+
+if (cartBtn && cartPanel && closeCart) {
+  cartBtn.addEventListener('click', () => {
+    cartPanel.classList.add('open');
+  });
+
+  closeCart.addEventListener('click', () => {
+    cartPanel.classList.remove('open');
+  });
+}
+</script>
+
+
+<script>
+  const toggleBtn = document.querySelector('.perfil-toggle');
+  const panel = document.querySelector('.perfil-panel');
+  const cerrarSesionBtn = document.getElementById('cerrar-sesion');
+
+  toggleBtn.addEventListener('click', () => {
+    panel.classList.toggle('open');
+  });
+
+  cerrarSesionBtn.addEventListener('click', () => {
+    localStorage.removeItem('usuarioMayorista');
+    sessionStorage.clear();
+    window.location.href = 'login.html'; // o 'index.html'
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.perfil-acordeon')) {
+      panel.classList.remove('open');
+    }
+  });
+
+//   Sección De Barra De Busqueda
+
+// Sección De Búsqueda Con Transición
+const searchBtn = document.querySelector('.icon-btn[title="Buscar"]');
+const searchBar = document.querySelector('.search-bar');
+const searchInput = searchBar.querySelector('input');
+
+// Mostrar Barra Al Hacer Click En La Lupa
+searchBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); 
+  searchBar.classList.add('visible');
+  searchInput.focus();
+});
+
+// Ocultar Barra Al Hacer Click Fuera
+document.addEventListener('click', (e) => {
+  if (!searchBar.contains(e.target) && !searchBtn.contains(e.target)) {
+    searchBar.classList.remove('visible');
+  }
+});
+
+// Buscar Al Presionar Enter
+searchInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    const query = searchInput.value.trim();
+    if (query !== '') {
+      console.log('Buscando:', query);
+      searchInput.value = ''; 
+      searchBar.classList.remove('visible'); 
+    }
+  }
+});
+</script>
+
+
+
+    <script src="main.js"></script>
+</body>
+</html>

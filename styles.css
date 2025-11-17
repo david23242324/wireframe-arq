@@ -34,7 +34,7 @@ header {
 
 .nav-menu :hover {
   transition: 1s;
-  color: #09b311;
+  color: #079cfb;
 
 }
 
@@ -223,15 +223,17 @@ header {
 
 .hero-banner {
   position: relative;
+  width: 100%;
   height: 93vh;
-  width: 206.2vh;
-  background:#0b0b0b;
+  background: #0b0b0b;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   text-align: center;
   overflow: hidden;
+  padding: 0 2rem;
+  box-sizing: border-box;
 }
 
 .hero-content {
@@ -276,7 +278,7 @@ header {
 .cta-button:hover {
   transform: scale(1.1);
   transition: 0.6s;
-  background: #09b311;
+  background: #079cfb;
 
 }
 
@@ -308,7 +310,7 @@ header {
 }
 
 .product-row::-webkit-scrollbar-thumb {
-  background: #09b311;
+  background: #079cfb;
   border-radius: 4px;
 }
 
@@ -342,7 +344,7 @@ header {
 
 .price {
   font-weight: bold;
-  color: #09b311;
+  color: #079cfb;
   margin-bottom: 0.3rem;
 }
 
@@ -388,7 +390,7 @@ header {
 }
 
 .mayorista-btn:hover {
-  background-color: #09b311;
+  background-color: #079cfb;
 }
 
 
@@ -433,7 +435,7 @@ header {
 
 .accessory-card .price {
   font-weight: bold;
-  color: #09b311;
+  color: #079cfb;
   margin-bottom: 0.3rem;
 }
 
@@ -446,7 +448,7 @@ header {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #09b311;
+  background: #079cfb;
   color: white;
   border: none;
   font-size: 2rem;
@@ -480,7 +482,7 @@ header {
 }
 
 .add-to-cart:hover {
-  background: #09b311;
+  background: #079cfb;
 }
 
 
@@ -508,96 +510,37 @@ footer {
 
 /* Sección Responsive */
 
-/* Responsive para tablets y móviles */
 @media (max-width: 1024px) {
-  .nav-menu {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .product-row {
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow-x: unset;
-  }
-
-  .product-card,
-  .accessory-card {
-    flex: 0 0 45%;
-    margin-bottom: 2rem;
-  }
-
-  .slider-arrow {
-    font-size: 1.5rem;
-    padding: 0.4rem;
+  .hero-banner {
+    flex-direction: column;
+    height: auto;
+    padding: 3rem 1.5rem;
+    text-align: center;
   }
 
   .hero-title {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
 
   .hero-subtext {
     font-size: 1rem;
-    margin-left: 0;
-    padding: 1rem;
-  }
-
-  .hero-banner {
-    width: 100%;
-    height: auto;
-    padding: 2rem 1rem;
-    flex-direction: column;
+    padding: 1rem 0;
   }
 
   .cta-button {
-    margin-top: 2rem;
-    font-size: 0.85rem;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
     padding: 0.8rem 1.2rem;
   }
 }
 
 @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem;
-  }
-
-  .logo {
-    margin-left: 0;
-    font-size: 1.2rem;
-  }
-
-  .nav-menu {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .icon-bar {
-    margin-top: 1rem;
-    justify-content: flex-start;
-  }
-
-  .search-bar {
-    width: 90%;
-    left: 5%;
-    transform: translateY(-20px);
-  }
-
-  .product-card,
-  .accessory-card {
-    flex: 0 0 100%;
-    width: 100%;
-  }
-
-  .login-container,
-  .cart-panel {
-    width: 90%;
-    padding: 1.5rem;
+  .hero-banner {
+    padding: 2rem 1rem;
   }
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .hero-subtext {
@@ -611,9 +554,13 @@ footer {
 }
 
 @media (max-width: 480px) {
+  .hero-banner {
+    padding: 2rem 1rem;
+  }
+
   .hero-title {
-    font-size: 2rem;
-    letter-spacing: 0.2rem;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
   }
 
   .hero-subtext {
@@ -624,23 +571,4 @@ footer {
     font-size: 0.75rem;
     padding: 0.6rem 0.9rem;
   }
-
-  .slider-arrow {
-    font-size: 1.2rem;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .product-card h3,
-  .accessory-card h3 {
-    font-size: 0.95rem;
-  }
-
-  .price,
-  .rating {
-    font-size: 0.85rem;
-  }
 }
-

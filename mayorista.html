@@ -19,7 +19,7 @@
 
 .nav-menu :hover {
   transition: 1s;
-  color: #09b311;
+  color: #079cfb;
 }
 
 .nav-item {
@@ -85,7 +85,7 @@
 }
 
 .btn-panel:hover {
-  background-color: #09b311;
+  background-color: #079cfb;
 }
 
 
@@ -93,15 +93,17 @@
 
 .hero-banner {
   position: relative;
+  width: 100%;
   height: 93vh;
-  width: 206.2vh;
-  background:#0b0b0b;
+  background: #0b0b0b;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   text-align: center;
   overflow: hidden;
+  padding: 0 2rem;
+  box-sizing: border-box;
 }
 
 .hero-content {
@@ -120,7 +122,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://i.pinimg.com/736x/9a/e5/a4/9ae5a4ab8d1f16b223c5e28bdb026782.jpg');
+  background-image: url('https://i.pinimg.com/736x/87/2e/7c/872e7c22fd27970f2c68885351867c03.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -146,7 +148,7 @@
 .cta-button:hover {
   transform: scale(1.1);
   transition: 0.6s;
-  background: #09b311;
+  background: #079cfb;
 
 }
 
@@ -173,7 +175,7 @@
 .tag {
   display: inline-block;
   margin-top: 0.5rem;
-  background-color: #09b311;
+  background-color: #079cfb;
   color: white;
   padding: 0.2rem 0.6rem;
   font-size: 0.8rem;
@@ -229,7 +231,7 @@
 }
 
 .close-beneficios:hover {
-  background-color: #09b311;
+  background-color: #079cfb;
 }
 
 
@@ -288,7 +290,7 @@
 
 .rating {
   font-size: 1rem;
-  color: #09b311;
+  color: #079cfb;
   margin-bottom: 1rem;
 }
 
@@ -304,7 +306,7 @@
 }
 
 .btn-solicitar:hover {
-  background-color: #09b311;
+  background-color: #079cfb;
 }
 
 
@@ -357,17 +359,17 @@
 }
 
 .estado.completado {
-  background-color: #09b311;
+  background-color: #079cfb;
   color: white;
 }
 
 .estado.pendiente {
-  background-color: #09b311;
+  background-color: #079cfb;
   color: white;
 }
 
 .estado.enviado {
-  background-color: #09b311;
+  background-color: #079cfb;
   color: white;
 }
 
@@ -383,7 +385,7 @@
 }
 
 .btn-repetir:hover {
-  background-color: #09b311;
+  background-color: #079cfb;
 }
 
 .go-to-cart {
@@ -449,7 +451,7 @@
 .tag-limitado {
   display: inline-block;
   margin-top: 0.5rem;
-  background-color: #09b311;
+  background-color: #079cfb;
   color: white;
   padding: 0.3rem 0.8rem;
   font-size: 0.8rem;
@@ -457,11 +459,11 @@
 }
 
 .tag-preventa {
-  background-color: #09b311;
+  background-color: #079cfb;
 }
 
 .tag-limitado {
-  background-color: #09b311;
+  background-color: #079cfb;
 }
 
 .btn-solicitar {
@@ -477,7 +479,7 @@
 }
 
 .btn-solicitar:hover {
-  background-color: #09b311;
+  background-color: #079cfb;
 }
 
 /* Sección De Contacto Con Asesor */
@@ -539,7 +541,7 @@
 }
 
 .btn-contacto:hover {
-  background-color: #09b311;
+  background-color: #079cfb;
 }
 
 
@@ -585,7 +587,7 @@
 }
 
 .close-beneficios:hover {
-  color: #09b311;
+  color: #079cfb;
 }
 
 .beneficios-list {
@@ -624,7 +626,7 @@
 }
 
 .btn-info:hover {
-  background-color: #09b311;
+  background-color: #079cfb;
 }
 
 .btn-ir-beneficios {
@@ -640,7 +642,63 @@
 }
 
 .btn-ir-beneficios:hover {
-  background-color: #09b311;
+  background-color: #079cfb;
+}
+
+/* Sección De Cerrar Sesión */
+
+.perfil-acordeon {
+  position: relative;
+  display: inline-block;
+}
+
+.perfil-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem;
+  transition: transform 0.2s ease;
+}
+
+.perfil-toggle:hover {
+  transform: scale(1.1);
+}
+
+.perfil-panel {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  padding: 1rem;
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  z-index: 1000;
+}
+
+.perfil-panel.open {
+  display: flex;
+}
+
+.perfil-opcion {
+  background-color: #000;
+  color: white;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-align: center;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.perfil-opcion:hover {
+  background-color: #079cfb;
+  color: white;
+  border-color: #079cfb;
 }
 
 
@@ -676,9 +734,17 @@
         <img src="https://i.pinimg.com/736x/79/ce/10/79ce10e4c34077215b988139aec41dbe.jpg" alt="Buscar" width="31px" />
       </button>
 
-      <a href="#" class="icon-btn" title="Perfil">
-        <img src="https://i.pinimg.com/736x/de/c6/4b/dec64b7b70d2072ed7046b2ce8f87b34.jpg" alt="Perfil" width="35px"/>
-      </a>
+<div class="perfil-acordeon">
+  <button class="perfil-toggle" title="Opciones de usuario">
+    <img src="https://i.pinimg.com/736x/de/c6/4b/dec64b7b70d2072ed7046b2ce8f87b34.jpg" alt="Perfil" width="35px"/>
+  </button>
+
+  <div class="perfil-panel">
+    <a href="perfil.html" class="perfil-opcion"> Ver Perfil</a>
+    <a href="configuracion.html" class="perfil-opcion"> Configuración</a>
+    <button id="cerrar-sesion" class="perfil-opcion"> Cerrar sesión</button>
+  </div>
+</div>
 
       <button class="icon-btn" title="Pedidos">
         <img src="https://i.pinimg.com/736x/11/10/0e/11100ef56c86518e60068da9d4bb8e85.jpg" alt="Pedidos" width="35px"/>
@@ -964,6 +1030,62 @@ if (cartBtn && cartPanel && closeCart) {
     cartPanel.classList.remove('open');
   });
 }
+</script>
+
+// Sección De Cierre De Sesión
+
+<script>
+  const toggleBtn = document.querySelector('.perfil-toggle');
+  const panel = document.querySelector('.perfil-panel');
+  const cerrarSesionBtn = document.getElementById('cerrar-sesion');
+
+  toggleBtn.addEventListener('click', () => {
+    panel.classList.toggle('open');
+  });
+
+  cerrarSesionBtn.addEventListener('click', () => {
+    localStorage.removeItem('usuarioMayorista');
+    sessionStorage.clear();
+    window.location.href = 'login.html'; // o 'index.html'
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.perfil-acordeon')) {
+      panel.classList.remove('open');
+    }
+  });
+
+  // Sección De Barra De Busqueda
+  // Sección De Búsqueda Con Transición
+const searchBtn = document.querySelector('.icon-btn[title="Buscar"]');
+const searchBar = document.querySelector('.search-bar');
+const searchInput = searchBar.querySelector('input');
+
+// Mostrar Barra Al Hacer Click En La Lupa
+searchBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); 
+  searchBar.classList.add('visible');
+  searchInput.focus();
+});
+
+// Ocultar Barra Al Hacer Click Fuera
+document.addEventListener('click', (e) => {
+  if (!searchBar.contains(e.target) && !searchBtn.contains(e.target)) {
+    searchBar.classList.remove('visible');
+  }
+});
+
+// Buscar Al Presionar Enter
+searchInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    const query = searchInput.value.trim();
+    if (query !== '') {
+      console.log('Buscando:', query);
+      searchInput.value = ''; 
+      searchBar.classList.remove('visible'); 
+    }
+  }
+});
 </script>
 
 
