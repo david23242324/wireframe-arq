@@ -197,57 +197,7 @@ header {
   border-radius: 4px;
 }
 
-/* Panel lateral izquierdo */
-.beneficios-panel {
-  position: fixed;
-  top: 0;
-  left: -100%;
-  width: 300px;
-  height: 100vh;
-  background: white;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.2);
-  transition: left 0.4s ease;
-  padding: 2rem;
-  z-index: 1000;
-}
-
-.beneficios-panel.open {
-  left: 0;
-}
-
-.beneficios-panel h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #222;
-}
-
-.beneficios-list {
-  list-style: none;
-  padding: 0;
-  font-size: 0.95rem;
-  color: #333;
-}
-
-.beneficios-list li {
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.5rem;
-}
-
-.close-beneficios {
-  margin-top: 2rem;
-  background-color: #000;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 100px;
-  transition: background 0.3s ease;
-}
-
-.close-beneficios:hover {
-  background-color: #079cfb;
-}
+/* Sección De Cerrar Sesión */
 
 .perfil-acordeon {
   position: relative;
@@ -303,231 +253,117 @@ header {
   border-color: #079cfb;
 }
 
-/* Sección De Panel De Tareas */
-
-.panel-empleado {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: auto;
-  background-color: #fff;
-  text-align: center;
+.logo-link {
+    text-decoration: none;
+    color:inherit;
 }
 
-.panel-empleado h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #222;
-}
+/* Sección De Reportes */
 
-.intro-text {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 2rem;
-      margin-left: 15rem;
+ .reportes-panel {
+      max-width: 1200px;
+      margin: auto;
+      padding: 4rem 2rem;
+      background-color: #fff;
+    }
 
-}
+    .reportes-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
 
-.grid-empleado {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
+    .reportes-header h2 {
+      font-size: 2rem;
+      color: #222;
+    }
 
-.card-empleado {
-  background: #f9f9f9;
-  padding: 2rem;
-  border-radius: 6px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    .filtros-reportes {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
 
-.card-empleado:hover {
-  transform: translateY(-5px);
-}
+    .filtros-reportes input[type="date"] {
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
 
-.card-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
+    .btn-generar {
+      background-color: #000;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
 
-.card-empleado h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-  color: #000;
-}
+    .btn-generar:hover {
+      background-color: #079cfb;
+    }
 
-.card-empleado p {
-  font-size: 0.95rem;
-  color: #333;
-  margin-bottom: 1rem;
-}
+    .resumen-reportes {
+      display: flex;
+      justify-content: space-between;
+      background-color: #f9f9f9;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+    }
 
-.btn-ir {
-  background-color: #000;
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border-radius: 50px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
+    .resumen-box {
+      text-align: center;
+    }
 
-.btn-ir:hover {
-  background-color: #079cfb;
-}
+    .resumen-box h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #333;
+    }
 
-.dashboard-empleado {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 4rem 2rem;
-  background-color: #fff;
-}
+    .resumen-box p {
+      margin: 0.3rem 0 0;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #0078d4;
+    }
 
-.dashboard-empleado h2 {
-    margin-left: 15rem;
-}
+    .tabla-wrapper {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      overflow-x: auto;
+    }
 
+    .tabla-reportes {
+      width: 100%;
+      border-collapse: collapse;
+    }
 
-.panel-acceso {
-  flex: 1 1 55%;
-}
+    .tabla-reportes th {
+      background-color: #000;
+      color: white;
+      padding: 1rem;
+      text-align: left;
+    }
 
-/* Sección De Barras */
+    .tabla-reportes td {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+      background-color: #fff;
+    }
 
-.panel-estadisticas {
-  flex: 1 1 40%;
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  padding: 2rem;
-  border-radius: 6px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-}
-
-.panel-estadisticas h3 {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.barra-estadistica {
-  margin-bottom: 1.5rem;
-}
-
-.barra-estadistica label {
-  font-size: 0.9rem;
-  margin-bottom: 0.4rem;
-  display: block;
-}
-
-.barra {
-  background-color: #333;
-  border-radius: 50px;
-  overflow: hidden;
-  height: 20px;
-}
-
-.relleno {
-  height: 100%;
-  color: white;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-align: right;
-  padding-right: 0.5rem;
-  line-height: 20px;
-}
-
-/* Colores personalizados */
-.relleno.gestion {
-  background-color: #079cfb;
-}
-
-.relleno.pedidos {
-  background-color: #079cfb;
-}
-
-.relleno.reportes {
-  background-color: #079cfb;
-}
-
-@media (max-width: 768px) {
-  .dashboard-empleado {
-    flex-direction: column;
-  }
-
-  .panel-acceso,
-  .panel-estadisticas {
-    flex: 1 1 100%;
-  }
-}
-
-/* Sección De Estadisticas De Reportes Generados */
-
-.preview-reportes {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  padding: 3rem 2rem;
-  border-radius: 6px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  margin-top: 3rem;
-  text-align: center;
-}
-
-.preview-reportes h3 {
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-}
-
-.stats-reportes {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.stat-box {
-  background-color: black;
-  padding: 1rem;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.stat-box h4 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  color: #ccc;
-}
-
-.stat-num {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #079cfb;
-}
-
-.stat-date {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #079cfb;
-}
-
-.btn-ir-reportes {
-  background-color: #000;
-  color: white;
-  padding: 0.6rem 1.2rem 1rem 1.2rem;
-  border-radius: 50px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.3s ease;
-  display: inline-block;
-}
-
-.btn-ir-reportes:hover {
-  background-color: #079cfb;
-}
+    .tabla-reportes tr:nth-child(even) td {
+      background-color: #f1f1f1;
+    }
 
   </style>
 </head>
@@ -535,7 +371,9 @@ header {
 
   <!-- Header -->
   <header>
+  <a href="empleado.html" class="logo-link">
   <div class="logo">F O C U S</div>
+</a>
 
 
     <nav>
@@ -580,99 +418,157 @@ header {
 
   </header>
 
-
-
-<section class="dashboard-empleado">
-  <div class="panel-acceso">
-    <h2>👷 Panel de Empleado</h2>
-    <p class="intro-text">Selecciona una función para continuar.</p>
-
-    <div class="grid-empleado">
-      <a href="empleado-gestion.html" class="card-empleado">
-        <div class="card-icon">🛠</div>
-        <h3>Gestión de Productos</h3>
-        <p>Editar, eliminar y filtrar productos por categoría.</p>
-        <span class="btn-ir">Acceder</span>
-      </a>
-
-      <a href="empleado-supervision.html" class="card-empleado">
-        <div class="card-icon">📦</div>
-        <h3>Supervisión de Pedidos</h3>
-        <p>Revisar estados, clientes y fechas.</p>
-        <span class="btn-ir">Acceder</span>
-      </a>
-
-      <a href="empleado-reportes.html" class="card-empleado">
-        <div class="card-icon">📊</div>
-        <h3>Generación de Reportes</h3>
-        <p>Exportar datos en PDF o Excel.</p>
-        <span class="btn-ir">Acceder</span>
-      </a>
-
-      <a href="empleado-documentos.html" class="card-empleado">
-        <div class="card-icon">📁</div>
-        <h3>Gestión Documental Interna</h3>
-        <p>Sube, consulta y organiza archivos internos por categoría.</p>
-        <span class="btn-ir">Acceder</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- Sección De Estadísticas De Reportes Generados -->
-
-<section class="preview-reportes">
-  <h3>📊 Previsualización de Reportes</h3>
-  <div class="stats-reportes">
-    <div class="stat-box">
-      <h4>Total de Reportes</h4>
-      <p class="stat-num">24</p>
-    </div>
-    <div class="stat-box">
-      <h4>PDF Generados</h4>
-      <p class="stat-num">15</p>
-    </div>
-    <div class="stat-box">
-      <h4>Excel Generados</h4>
-      <p class="stat-num">9</p>
-    </div>
-    <div class="stat-box">
-      <h4>Último Reporte</h4>
-      <br>
-      <p class="stat-date">16/11/2025</p>
-    </div>
-  </div>
-
-  <a href="empleado-reportes.html" class="btn-ir-reportes">Ir a Generación de Reportes</a>
-</section>
-
-
-  <!-- Sección De Panel De Estadísticas -->
-
-  <div class="panel-estadisticas">
-    <h3>Estadísticas Operativas</h3>
-
-    <div class="barra-estadistica">
-      <label>Productos actualizados</label>
-      <div class="barra">
-        <div class="relleno gestion" style="width: 78%;">78%</div>
+    <section class="reportes-panel">
+    <div class="reportes-header">
+      <h2>Generación de Reportes</h2>
+      <div class="filtros-reportes">
+        <label for="fecha-inicio">Desde:</label>
+        <input type="date" id="fecha-inicio" />
+        <label for="fecha-fin">Hasta:</label>
+        <input type="date" id="fecha-fin" />
+        <button class="btn-generar">Generar PDF/Excel</button>
       </div>
     </div>
 
-    <div class="barra-estadistica">
-      <label>Pedidos procesados</label>
-      <div class="barra">
-        <div class="relleno pedidos" style="width: 64%;">64%</div>
+    <div class="resumen-reportes">
+      <div class="resumen-box">
+        <h3>Pedidos Totales</h3>
+        <p>128</p>
+      </div>
+      <div class="resumen-box">
+        <h3>Pedidos Entregados</h3>
+        <p>94</p>
+      </div>
+      <div class="resumen-box">
+        <h3>Pedidos Pendientes</h3>
+        <p>34</p>
       </div>
     </div>
 
-    <div class="barra-estadistica">
-      <label>Reportes generados</label>
-      <div class="barra">
-        <div class="relleno reportes" style="width: 52%;">52%</div>
-      </div>
+    <div class="tabla-wrapper">
+      <table class="tabla-reportes">
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Fecha</th>
+            <th>Estado</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Laura Gómez</td>
+            <td>2025-11-15</td>
+            <td>Pendiente</td>
+            <td>$120.000</td>
+          </tr>
+          <tr>
+            <td>Carlos Ruiz</td>
+            <td>2025-11-14</td>
+            <td>Entregado</td>
+            <td>$85.000</td>
+          </tr>
+          <tr>
+            <td>María Torres</td>
+            <td>2025-11-12</td>
+            <td>Enviado</td>
+            <td>$150.000</td>
+          </tr>
+           <tr>
+            <td>Laura Gómez</td>
+            <td>2025-11-15</td>
+            <td>Pendiente</td>
+            <td>$120.000</td>
+          </tr>
+          <tr>
+            <td>Carlos Ruiz</td>
+            <td>2025-11-14</td>
+            <td>Entregado</td>
+            <td>$85.000</td>
+          </tr>
+          <tr>
+            <td>María Torres</td>
+            <td>2025-11-12</td>
+            <td>Enviado</td>
+            <td>$150.000</td>
+          </tr>
+           <tr>
+            <td>Laura Gómez</td>
+            <td>2025-11-15</td>
+            <td>Pendiente</td>
+            <td>$120.000</td>
+          </tr>
+          <tr>
+            <td>Carlos Ruiz</td>
+            <td>2025-11-14</td>
+            <td>Entregado</td>
+            <td>$85.000</td>
+          </tr>
+          <tr>
+            <td>María Torres</td>
+            <td>2025-11-12</td>
+            <td>Enviado</td>
+            <td>$150.000</td>
+          </tr>
+           <tr>
+            <td>Laura Gómez</td>
+            <td>2025-11-15</td>
+            <td>Pendiente</td>
+            <td>$120.000</td>
+          </tr>
+          <tr>
+            <td>Carlos Ruiz</td>
+            <td>2025-11-14</td>
+            <td>Entregado</td>
+            <td>$85.000</td>
+          </tr>
+          <tr>
+            <td>María Torres</td>
+            <td>2025-11-12</td>
+            <td>Enviado</td>
+            <td>$150.000</td>
+          </tr>
+           <tr>
+            <td>Laura Gómez</td>
+            <td>2025-11-15</td>
+            <td>Pendiente</td>
+            <td>$120.000</td>
+          </tr>
+          <tr>
+            <td>Carlos Ruiz</td>
+            <td>2025-11-14</td>
+            <td>Entregado</td>
+            <td>$85.000</td>
+          </tr>
+          <tr>
+            <td>María Torres</td>
+            <td>2025-11-12</td>
+            <td>Enviado</td>
+            <td>$150.000</td>
+          </tr>
+           <tr>
+            <td>Laura Gómez</td>
+            <td>2025-11-15</td>
+            <td>Pendiente</td>
+            <td>$120.000</td>
+          </tr>
+          <tr>
+            <td>Carlos Ruiz</td>
+            <td>2025-11-14</td>
+            <td>Entregado</td>
+            <td>$85.000</td>
+          </tr>
+          <tr>
+            <td>María Torres</td>
+            <td>2025-11-12</td>
+            <td>Enviado</td>
+            <td>$150.000</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </div>
-</section>
+  </section>
+
 
   <!-- Footer -->
   <footer>
@@ -797,7 +693,18 @@ searchInput.addEventListener('keydown', (e) => {
     }
   }
 });
+
+document.getElementById("filtro-categoria").addEventListener("change", function () {
+  const categoria = this.value.toLowerCase();
+  const filas = document.querySelectorAll("#productos-body tr");
+
+  filas.forEach((fila) => {
+    const cat = fila.cells[3].textContent.toLowerCase();
+    fila.style.display = categoria === "" || cat === categoria ? "" : "none";
+  });
+});
 </script>
+
 
 
 
