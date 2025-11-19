@@ -89,21 +89,24 @@ document.addEventListener('click', () => {
 
 // Sección De Nuevos Productos
 
-const track = document.querySelector('.slider-track');
-const leftArrow = document.querySelector('.slider-arrow.left');
-const rightArrow = document.querySelector('.slider-arrow.right');
+document.querySelectorAll('.slider-wrapper').forEach(wrapper => {
+  const track = wrapper.querySelector('.slider-track');
+  const leftArrow = wrapper.querySelector('.slider-arrow.left');
+  const rightArrow = wrapper.querySelector('.slider-arrow.right');
 
-let scrollX = 0;
-const step = 340;
+  let scrollX = 0;
+  const step = 340;
 
-leftArrow.addEventListener('click', () => {
-  scrollX = Math.max(scrollX - step, 0);
-  track.style.transform = `translateX(-${scrollX}px)`;
-});
+  leftArrow.addEventListener('click', () => {
+    scrollX = Math.max(scrollX - step, 0);
+    track.style.transform = `translateX(-${scrollX}px)`;
+  });
 
-rightArrow.addEventListener('click', () => {
-  scrollX += step;
-  track.style.transform = `translateX(-${scrollX}px)`;
+  rightArrow.addEventListener('click', () => {
+    const maxScroll = track.scrollWidth - wrapper.offsetWidth;
+    scrollX = Math.min(scrollX + step, maxScroll);
+    track.style.transform = `translateX(-${scrollX}px)`;
+  });
 });
 
 // Botón De Agregar Carrito

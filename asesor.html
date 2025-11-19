@@ -529,6 +529,157 @@ header {
   background-color: #079cfb;
 }
 
+/* Sección De Formulario */
+.chat-full-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr 320px;
+  gap: 2rem;
+  padding: 2rem 3rem;
+  background: #fff;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.chat-contactos {
+  background: #f0f4f8;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chat-contactos h4 {
+  font-size: 1rem;
+  margin-top: 1rem;
+  color: #444;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.3rem;
+}
+
+.contacto {
+  background: #fff;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: background 0.3s ease;
+}
+
+.contacto:hover {
+  background: #e6f2ff;
+}
+
+.contacto.destacado {
+  background: #079cfb;
+  color: white;
+  font-weight: bold;
+}
+
+.chat-conversacion {
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chat-box {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.mensaje {
+  max-width: 70%;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+
+.mensaje-admin {
+  background: #079cfb;
+  color: white;
+  align-self: flex-end;
+}
+
+.mensaje-respuesta {
+  background: #e0e0e0;
+  color: #222;
+  align-self: flex-start;
+}
+
+.timestamp {
+  font-size: 0.75rem;
+  color: #ccc;
+  margin-top: 0.4rem;
+  display: block;
+}
+
+.chat-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chat-input textarea {
+  flex: 1;
+  height: 80px;
+  padding: 0.8rem;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: none;
+}
+
+.btn-enviar {
+  background-color: #079cfb;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-enviar:hover {
+  background-color: #0078d4;
+}
+
+.chat-info-cliente {
+  background: #fdfdfd;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cliente-foto img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.info-cliente {
+  list-style: none;
+  padding: 0;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.info-cliente li {
+  margin-bottom: 0.6rem;
+}
+
   </style>
 </head>
 <body>
@@ -584,41 +735,39 @@ header {
 
 <section class="dashboard-empleado">
   <div class="panel-acceso">
-    <h2>👷 Panel de Empleado</h2>
+    <h2>🧑‍💼 Panel del Asesor</h2>
     <p class="intro-text">Selecciona una función para continuar.</p>
 
     <div class="grid-empleado">
-      <a href="empleado-gestion.html" class="card-empleado">
-        <div class="card-icon">🛠</div>
-        <h3>Gestión de Productos</h3>
-        <p>Editar, eliminar y filtrar productos por categoría.</p>
+      <a href="asesor-registro.html" class="card-empleado">
+        <div class="card-icon">📝</div>
+        <h3>Registro de Pedidos</h3>
+        <p>Formulario rápido para clientes mayoristas.</p>
         <span class="btn-ir">Acceder</span>
       </a>
 
-      <a href="empleado-supervision.html" class="card-empleado">
-        <div class="card-icon">📦</div>
-        <h3>Supervisión de Pedidos</h3>
-        <p>Revisar estados, clientes y fechas.</p>
+      <a href="asesor-informe.html" class="card-empleado">
+        <div class="card-icon">📣</div>
+        <h3>Informar al Administrador</h3>
+        <p>Enviar alertas o mensajes internos.</p>
         <span class="btn-ir">Acceder</span>
       </a>
 
-      <a href="empleado-reportes.html" class="card-empleado">
-        <div class="card-icon">📊</div>
-        <h3>Generación de Reportes</h3>
-        <p>Exportar datos en PDF o Excel.</p>
+      <a href="asesor-clientes.html" class="card-empleado">
+        <div class="card-icon">💬</div>
+        <h3>Atención a Mayoristas</h3>
+        <p>Chat y seguimiento de interacciones.</p>
         <span class="btn-ir">Acceder</span>
       </a>
 
-      <a href="empleado-documentos.html" class="card-empleado">
-        <div class="card-icon">📁</div>
-        <h3>Gestión Documental </h3>
-        <p>Sube, consulta y organiza archivos.</p>
+      <a href="asesor-historial.html" class="card-empleado">
+        <div class="card-icon">📄</div>
+        <h3>Historial de Pedidos</h3>
+        <p>Consulta filtrada por cliente mayorista.</p>
         <span class="btn-ir">Acceder</span>
       </a>
     </div>
   </div>
-
-  <!-- Sección De Estadísticas De Reportes Generados -->
 
 <section class="preview-reportes">
   <h3>📊 Previsualización de Reportes</h3>
@@ -645,33 +794,54 @@ header {
   <a href="empleado-reportes.html" class="btn-ir-reportes">Ir a Generación de Reportes</a>
 </section>
 
+<section class="chat-full-layout">
+  <!-- Panel izquierdo: contactos -->
+  <aside class="chat-contactos">
+    <div class="contacto destacado">Administrador General</div>
+    <h4>Clientes Mayoristas</h4>
+    <div class="contacto">Laura Gómez</div>
+    <div class="contacto">Carlos Ruiz</div>
+    <div class="contacto">María Torres</div>
+    <div class="contacto">Distribuciones Élite</div>
+  </aside>
 
-  <!-- Sección De Panel De Estadísticas -->
+  <!-- Panel central: conversación -->
+  <main class="chat-conversacion">
+    <div class="chat-box">
+      <div class="mensaje mensaje-admin">
+        <p>Pedido urgente para cliente mayorista Laura Gómez.</p>
+        <span class="timestamp">18/11/2025 - 10:42 AM</span>
+      </div>
 
-  <div class="panel-estadisticas">
-    <h3>Estadísticas Operativas</h3>
-
-    <div class="barra-estadistica">
-      <label>Productos actualizados</label>
-      <div class="barra">
-        <div class="relleno gestion" style="width: 78%;">78%</div>
+      <div class="mensaje mensaje-respuesta">
+        <p>Recibido. Se prioriza el envío hoy mismo.</p>
+        <span class="timestamp">18/11/2025 - 10:45 AM</span>
       </div>
     </div>
 
-    <div class="barra-estadistica">
-      <label>Pedidos procesados</label>
-      <div class="barra">
-        <div class="relleno pedidos" style="width: 64%;">64%</div>
-      </div>
+    <div class="chat-input">
+      <textarea placeholder="Escribe tu mensaje interno..."></textarea>
+      <button class="btn-enviar">Enviar</button>
     </div>
+  </main>
 
-    <div class="barra-estadistica">
-      <label>Reportes generados</label>
-      <div class="barra">
-        <div class="relleno reportes" style="width: 52%;">52%</div>
-      </div>
+  <!-- Panel derecho: info del cliente con imagen -->
+  <aside class="chat-info-cliente">
+    <div class="cliente-foto">
+      <img src="https://i.pinimg.com/736x/10/b0/e2/10b0e23f4332ba1d62389ef948035632.jpg" alt="Foto del cliente" />
     </div>
-  </div>
+    <ul class="info-cliente">
+      <li><strong>Nombre:</strong> Laura Gómez</li>
+      <li><strong>Empresa:</strong> Distribuciones Élite S.A.S.</li>
+      <li><strong>Correo:</strong> lauragomez@elite.com.co</li>
+      <li><strong>Teléfono:</strong> 315 456 7895</li>
+      <li><strong>Último pedido:</strong> 18/11/2025</li>
+      <li><strong>Estado:</strong> Urgente</li>
+    </ul>
+  </aside>
+</section>
+ 
+
 </section>
 
   <!-- Footer -->
@@ -683,7 +853,7 @@ header {
   <script>
     const rol = localStorage.getItem("rolActivo");
 
-if (rol !== "empleado") {
+if (rol !== "asesor") {
   alert("Acceso denegado. Esta sección es solo para empleados.");
   window.location.href = "login.html";
 }
@@ -765,7 +935,6 @@ if (cartBtn && cartPanel && closeCart) {
     }
   });
 
-//   Sección De Barra De Busqueda
 
 // Sección De Búsqueda Con Transición
 const searchBtn = document.querySelector('.icon-btn[title="Buscar"]');

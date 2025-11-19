@@ -9,6 +9,11 @@
 
 /* Header */
 
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -197,7 +202,57 @@ header {
   border-radius: 4px;
 }
 
-/* Sección De Cerrar Sesión */
+/* Panel lateral izquierdo */
+.beneficios-panel {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  height: 100vh;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+  transition: left 0.4s ease;
+  padding: 2rem;
+  z-index: 1000;
+}
+
+.beneficios-panel.open {
+  left: 0;
+}
+
+.beneficios-panel h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.beneficios-list {
+  list-style: none;
+  padding: 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.beneficios-list li {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.close-beneficios {
+  margin-top: 2rem;
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: background 0.3s ease;
+}
+
+.close-beneficios:hover {
+  background-color: #079cfb;
+}
 
 .perfil-acordeon {
   position: relative;
@@ -253,131 +308,339 @@ header {
   border-color: #079cfb;
 }
 
-.logo-link {
-    text-decoration: none;
-    color:inherit;
-}
+/* Sección De Panel De Tareas */
 
-/* Sección De Tareas */
-
-.gestion-productos {
+.panel-empleado {
   padding: 4rem 2rem;
   max-width: 1200px;
   margin: auto;
   background-color: #fff;
+  text-align: center;
 }
 
-.panel-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-}
-
-.panel-header h2 {
+.panel-empleado h2 {
   font-size: 2rem;
+  margin-bottom: 1rem;
   color: #222;
 }
 
-.filtro-box {
+.intro-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+  margin-left: 0rem;
+
+}
+
+.grid-empleado {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.card-empleado {
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1rem;
 }
 
-.filtro-box label {
+.card-empleado:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.card-empleado h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.card-empleado p {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.btn-ir {
+  background-color: #000;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
   font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-select {
-  padding: 0.5rem;
-  border-radius: 4px;
+.btn-ir:hover {
+  background-color: #079cfb;
+}
+
+.dashboard-empleado {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background-color: #fff;
+}
+
+.dashboard-empleado h2 {
+    margin-left: 15rem;
+}
+
+
+.panel-acceso {
+  flex: 1 1 55%;
+}
+
+/* Sección De Barras */
+
+.panel-estadisticas {
+  flex: 1 1 40%;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 2rem;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.panel-estadisticas h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.barra-estadistica {
+  margin-bottom: 1.5rem;
+}
+
+.barra-estadistica label {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.barra {
+  background-color: #333;
+  border-radius: 50px;
+  overflow: hidden;
+  height: 20px;
+}
+
+.relleno {
+  height: 100%;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: right;
+  padding-right: 0.5rem;
+  line-height: 20px;
+}
+
+/* Colores personalizados */
+.relleno.gestion {
+  background-color: #079cfb;
+}
+
+.relleno.pedidos {
+  background-color: #079cfb;
+}
+
+.relleno.reportes {
+  background-color: #079cfb;
+}
+
+@media (max-width: 768px) {
+  .dashboard-empleado {
+    flex-direction: column;
+  }
+
+  .panel-acceso,
+  .panel-estadisticas {
+    flex: 1 1 100%;
+  }
+}
+
+/* Sección De Estadisticas De Reportes Generados */
+
+.preview-reportes {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 3rem 2rem;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.preview-reportes h3 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.stats-reportes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-box {
+  background-color: black;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.stat-box h4 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+}
+
+.stat-num {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #079cfb;
+}
+
+.stat-date {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #079cfb;
+}
+
+.btn-ir-reportes {
+  background-color: #000;
+  color: white;
+  padding: 0.6rem 1.2rem 1rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  display: inline-block;
+}
+
+.btn-ir-reportes:hover {
+  background-color: #079cfb;
+}
+
+/*Gistorial De Pedidos*/
+
+.historial-pedidos {
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 3rem 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.historial-pedidos h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+  text-align: center;
+}
+
+.intro-text {
+  font-size: 0.95rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.filtro-busqueda {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filtro-busqueda input {
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
   border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 300px;
+}
+
+.btn-filtrar {
+  background-color: #079cfb;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.4rem;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-filtrar:hover {
+  background-color: #0078d4;
 }
 
 .tabla-wrapper {
-  background: #f9f9f9;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   overflow-x: auto;
 }
 
-.tabla-productos {
+.tabla-historial {
   width: 100%;
   border-collapse: collapse;
+  font-size: 0.95rem;
 }
 
-.tabla-productos th {
+.tabla-historial th {
   background-color: #000;
   color: white;
   padding: 1rem;
   text-align: left;
 }
 
-.tabla-productos td {
+.tabla-historial td {
   padding: 1rem;
   border-bottom: 1px solid #eee;
-}
-
-.tabla-productos tr:nth-child(even) {
-  background-color: #f1f1f1;
-}
-
-.tabla-productos td[contenteditable="true"] {
   background-color: #fff;
-  outline: none;
 }
 
-.btn-editar,
-.btn-eliminar {
-  background-color: #000;
-  color: white;
-  border: none;
-  padding: 0.4rem 0.8rem;
-  cursor: pointer;
+.tabla-historial tr:nth-child(even) td {
+  background-color: #f9f9f9;
+}
+
+.estado {
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-weight: 600;
   font-size: 0.85rem;
-  margin-right: 2rem;
-  transition: background 0.3s ease;
+  display: inline-block;
 }
 
-.btn-editar:hover {
-  background-color: #079cfb;
+.estado.pendiente {
+  background-color: #ffe0e0;
+  color: #d10000;
 }
 
-.btn-eliminar:hover {
-  background-color: #c62828;
+.estado.enviado {
+  background-color: #e0f7ff;
+  color: #0078d4;
 }
 
-/* Sección De Reportes */
+.estado.entregado {
+  background-color: #e0ffe5;
+  color: #008f3d;
+}
 
-.resumen-reportes {
-      display: flex;
-      justify-content: space-between;
-      background-color: #f9f9f9;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      margin-bottom: 2rem;
-    }
 
-    .resumen-box {
-      text-align: center;
-    }
-
-    .resumen-box h3 {
-      margin: 0;
-      font-size: 1.2rem;
-      color: #333;
-    }
-
-    .resumen-box p {
-      margin: 0.3rem 0 0;
-      font-size: 1.6rem;
-      font-weight: bold;
-      color: #0078d4;
-    }
 
   </style>
 </head>
@@ -385,10 +648,9 @@ select {
 
   <!-- Header -->
   <header>
-  <a href="empleado.html" class="logo-link">
-  <div class="logo">F O C U S</div>
+  <a href="asesor.html" class="logo-link">
+    <div class="logo">F O C U S</div>
 </a>
-
 
     <nav>
       <ul class="nav-menu">
@@ -432,200 +694,55 @@ select {
 
   </header>
 
-<section class="gestion-productos">
-  <div class="panel-header">
-    <h2>Supervisión de Pedidos</h2>
+  <section class="historial-pedidos">
+  <h2> Historial de Pedidos Mayoristas</h2>
+  <p class="intro-text">Consulta los pedidos registrados por cliente, fecha y estado.</p>
+
+  <div class="filtro-busqueda">
+    <input type="text" placeholder="Filtrar por nombre de cliente..." />
+    <button class="btn-filtrar">Filtrar</button>
   </div>
 
-      <div class="resumen-reportes">
-      <div class="resumen-box">
-        <h3>Pedidos Totales</h3>
-        <p>128</p>
-      </div>
-      <div class="resumen-box">
-        <h3>Pedidos Entregados</h3>
-        <p>94</p>
-      </div>
-      <div class="resumen-box">
-        <h3>Pedidos Pendientes</h3>
-        <p>34</p>
-      </div>
-    </div>
-
   <div class="tabla-wrapper">
-    <table class="tabla-productos">
+    <table class="tabla-historial">
       <thead>
         <tr>
-          <th>Estado</th>
           <th>Cliente</th>
           <th>Fecha</th>
-          <th>Acción</th>
+          <th>Producto</th>
+          <th>Estado</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td contenteditable="true">Pendiente</td>
-          <td contenteditable="true">Laura Gómez</td>
-          <td contenteditable="true">2025-11-15</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
+          <td>Laura Gómez</td>
+          <td>18/11/2025</td>
+          <td>Buso Essential Oversize</td>
+          <td><span class="estado pendiente">Pendiente</span></td>
         </tr>
         <tr>
-          <td contenteditable="true">Enviado</td>
-          <td contenteditable="true">Carlos Ruiz</td>
-          <td contenteditable="true">2025-11-14</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
+          <td>Carlos Ruiz</td>
+          <td>17/11/2025</td>
+          <td>Gorra Urban Snapback</td>
+          <td><span class="estado entregado">Entregado</span></td>
         </tr>
         <tr>
-          <td contenteditable="true">Entregado</td>
-          <td contenteditable="true">María Torres</td>
-          <td contenteditable="true">2025-11-12</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
+          <td>María Torres</td>
+          <td>16/11/2025</td>
+          <td>Jogger Streetline</td>
+          <td><span class="estado enviado">Enviado</span></td>
         </tr>
         <tr>
-          <td contenteditable="true">Pendiente</td>
-          <td contenteditable="true">Andrés Pérez</td>
-          <td contenteditable="true">2025-11-16</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Enviado</td>
-          <td contenteditable="true">Sofía Ramírez</td>
-          <td contenteditable="true">2025-11-13</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-         <tr>
-          <td contenteditable="true">Pendiente</td>
-          <td contenteditable="true">Laura Gómez</td>
-          <td contenteditable="true">2025-11-15</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Enviado</td>
-          <td contenteditable="true">Carlos Ruiz</td>
-          <td contenteditable="true">2025-11-14</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Entregado</td>
-          <td contenteditable="true">María Torres</td>
-          <td contenteditable="true">2025-11-12</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Pendiente</td>
-          <td contenteditable="true">Andrés Pérez</td>
-          <td contenteditable="true">2025-11-16</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Enviado</td>
-          <td contenteditable="true">Sofía Ramírez</td>
-          <td contenteditable="true">2025-11-13</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-         <tr>
-          <td contenteditable="true">Pendiente</td>
-          <td contenteditable="true">Laura Gómez</td>
-          <td contenteditable="true">2025-11-15</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Enviado</td>
-          <td contenteditable="true">Carlos Ruiz</td>
-          <td contenteditable="true">2025-11-14</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Entregado</td>
-          <td contenteditable="true">María Torres</td>
-          <td contenteditable="true">2025-11-12</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Pendiente</td>
-          <td contenteditable="true">Andrés Pérez</td>
-          <td contenteditable="true">2025-11-16</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Enviado</td>
-          <td contenteditable="true">Sofía Ramírez</td>
-          <td contenteditable="true">2025-11-13</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-         <tr>
-          <td contenteditable="true">Pendiente</td>
-          <td contenteditable="true">Laura Gómez</td>
-          <td contenteditable="true">2025-11-15</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Enviado</td>
-          <td contenteditable="true">Carlos Ruiz</td>
-          <td contenteditable="true">2025-11-14</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Entregado</td>
-          <td contenteditable="true">María Torres</td>
-          <td contenteditable="true">2025-11-12</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Pendiente</td>
-          <td contenteditable="true">Andrés Pérez</td>
-          <td contenteditable="true">2025-11-16</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Enviado</td>
-          <td contenteditable="true">Sofía Ramírez</td>
-          <td contenteditable="true">2025-11-13</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
+          <td>Distribuciones Élite</td>
+          <td>15/11/2025</td>
+          <td>Set C.R.O. Urban Black</td>
+          <td><span class="estado pendiente">Pendiente</span></td>
         </tr>
       </tbody>
     </table>
   </div>
+</section>
+
 </section>
 
   <!-- Footer -->
@@ -637,7 +754,7 @@ select {
   <script>
     const rol = localStorage.getItem("rolActivo");
 
-if (rol !== "empleado") {
+if (rol !== "asesor") {
   alert("Acceso denegado. Esta sección es solo para empleados.");
   window.location.href = "login.html";
 }
@@ -719,7 +836,6 @@ if (cartBtn && cartPanel && closeCart) {
     }
   });
 
-//   Sección De Barra De Busqueda
 
 // Sección De Búsqueda Con Transición
 const searchBtn = document.querySelector('.icon-btn[title="Buscar"]');
@@ -751,18 +867,7 @@ searchInput.addEventListener('keydown', (e) => {
     }
   }
 });
-
-document.getElementById("filtro-categoria").addEventListener("change", function () {
-  const categoria = this.value.toLowerCase();
-  const filas = document.querySelectorAll("#productos-body tr");
-
-  filas.forEach((fila) => {
-    const cat = fila.cells[3].textContent.toLowerCase();
-    fila.style.display = categoria === "" || cat === categoria ? "" : "none";
-  });
-});
 </script>
-
 
 
 

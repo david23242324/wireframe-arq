@@ -258,6 +258,36 @@ select {
     color: inherit;
 }
 
+
+/* Sección De Reportes */
+
+.resumen-reportes {
+      display: flex;
+      justify-content: space-between;
+      background-color: #f9f9f9;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+    }
+
+    .resumen-box {
+      text-align: center;
+    }
+
+    .resumen-box h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .resumen-box p {
+      margin: 0.3rem 0 0;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #0078d4;
+    }
+
 /* Sección De Barras */
 
 .panel-estadisticas {
@@ -392,6 +422,21 @@ select {
     </div>
   </div>
 
+      <div class="resumen-reportes">
+      <div class="resumen-box">
+        <h3>Pedidos Totales</h3>
+        <p>128</p>
+      </div>
+      <div class="resumen-box">
+        <h3>Pedidos Entregados</h3>
+        <p>94</p>
+      </div>
+      <div class="resumen-box">
+        <h3>Pedidos Pendientes</h3>
+        <p>34</p>
+      </div>
+    </div>
+
   <div class="tabla-wrapper">
     <table class="tabla-productos">
       <thead>
@@ -498,31 +543,6 @@ select {
     </table>
   </div>
 </section>
-
-<div class="panel-estadisticas">
-  <h3>Actividad del Empleado</h3>
-
-  <div class="barra-estadistica">
-    <label>Tareas completadas</label>
-    <div class="barra">
-      <div class="relleno gestion" style="width: 85%;">85%</div>
-    </div>
-  </div>
-
-  <div class="barra-estadistica">
-    <label>Solicitudes internas atendidas</label>
-    <div class="barra">
-      <div class="relleno pedidos" style="width: 72%;">72%</div>
-    </div>
-  </div>
-
-  <div class="barra-estadistica">
-    <label>Tiempo promedio de respuesta</label>
-    <div class="barra">
-      <div class="relleno reportes" style="width: 58%;">58%</div>
-    </div>
-  </div>
-</div>
 
   <!-- Footer -->
   <footer>

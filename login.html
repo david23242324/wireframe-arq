@@ -16,31 +16,28 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgb(255, 255, 255, 1);
-  color: rgb(0, 0, 0);
-  padding: 0.2rem 2rem;
+  background: #ffffff; 
+  color: #000000;
+  padding: 0.5rem 2rem;
   position: relative;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-
-
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .nav-menu {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.nav-menu :hover {
-  transition: 1s;
-  color: #079cfb;
-
-}
-
 .nav-item {
-  position: relative;
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: color 0.3s ease, background 0.3s ease;
+  border-radius: 4px;
 }
 
 .nav-toggle {
@@ -49,8 +46,13 @@ header {
   font-family: inherit;
   font-size: 1.1rem;
   cursor: pointer;
-  color: #000;
+  color: #000000;
   padding: 0.5rem;
+}
+
+.nav-menu :hover {
+  transition: 1s;
+  color: #079cfb;
 }
 
 .submenu {

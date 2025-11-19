@@ -13,6 +13,51 @@
       padding: 0;
     }
 
+    /* Header */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff; 
+  color: #000000;
+  padding: 0.5rem 2rem;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: color 0.3s ease, background 0.3s ease;
+  border-radius: 4px;
+}
+
+.nav-toggle {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #000000;
+  padding: 0.5rem;
+}
+
+.nav-menu :hover {
+  transition: 1s;
+  color: #079cfb;
+}
+
     .historial-container {
       max-width: 1100px;
       margin: 4rem auto;
@@ -55,7 +100,6 @@
 
     .estado {
       padding: 0.4rem 0.8rem;
-      border-radius: 4px;
       font-weight: 600;
       font-size: 0.85rem;
     }
@@ -80,7 +124,6 @@
       color: white;
       border: none;
       padding: 0.5rem 1rem;
-      border-radius: 50px;
       font-weight: 600;
       cursor: pointer;
       transition: background 0.3s ease;

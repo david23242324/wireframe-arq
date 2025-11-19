@@ -18,28 +18,28 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgb(255, 255, 255, 1);
-  color: rgb(0, 0, 0);
-  padding: 0.2rem 2rem;
+  background: #ffffff; 
+  color: #000000;
+  padding: 0.5rem 2rem;
   position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .nav-menu {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.nav-menu :hover {
-  transition: 1s;
-  color: #079cfb;
-
-}
-
 .nav-item {
-  position: relative;
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: color 0.3s ease, background 0.3s ease;
+  border-radius: 4px;
 }
 
 .nav-toggle {
@@ -48,9 +48,15 @@ header {
   font-family: inherit;
   font-size: 1.1rem;
   cursor: pointer;
-  color: #000;
+  color: #000000;
   padding: 0.5rem;
 }
+
+.nav-menu :hover {
+  transition: 1s;
+  color: #079cfb;
+}
+
 
 .submenu {
   position: absolute;
@@ -395,54 +401,64 @@ header {
 
 
 /* Sección De Nuevos Productos */
-
-.accessory-highlight {
-  padding: 3rem 2rem;
+.accessory-highlight,
+.slider-section {
+  padding: 2rem 1.5rem;
   background: #fdfdfd;
 }
+
 
 .slider-wrapper {
   position: relative;
   overflow: hidden;
 }
 
+
 .slider-track {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   transition: transform 0.4s ease;
 }
 
+
 .accessory-card {
-  flex: 0 0 320px;
+  flex: 0 0 260px;
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 1rem;
   text-align: center;
 }
 
+
 .accessory-card img {
   width: 100%;
-  border-radius: 10px;
-  margin-bottom: 1rem;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
 }
 
+
 .accessory-card h3 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
+
 
 .accessory-card .price {
   font-weight: bold;
   color: #079cfb;
-  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
 }
 
+
 .accessory-card .rating {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #555;
 }
+
 
 .slider-arrow {
   position: absolute;
@@ -451,19 +467,20 @@ header {
   background: #079cfb;
   color: white;
   border: none;
-  font-size: 2rem;
-  padding: 0.5rem 0.5rem;
+  font-size: 1.6rem;
+  padding: 0.4rem 0.6rem;
   cursor: pointer;
   z-index: 10;
-  border-radius: 1000px;
+  border-radius: 50px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .slider-arrow.left {
-  left: 1rem;
+  left: 0.5rem;
 }
 
 .slider-arrow.right {
-  right: 1rem;
+  right: 0.5rem;
 }
 
 /* Botón De Agregar A Carrito */

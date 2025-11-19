@@ -197,7 +197,57 @@ header {
   border-radius: 4px;
 }
 
-/* Sección De Cerrar Sesión */
+/* Panel lateral izquierdo */
+.beneficios-panel {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  height: 100vh;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+  transition: left 0.4s ease;
+  padding: 2rem;
+  z-index: 1000;
+}
+
+.beneficios-panel.open {
+  left: 0;
+}
+
+.beneficios-panel h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.beneficios-list {
+  list-style: none;
+  padding: 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.beneficios-list li {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.close-beneficios {
+  margin-top: 2rem;
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: background 0.3s ease;
+}
+
+.close-beneficios:hover {
+  background-color: #079cfb;
+}
 
 .perfil-acordeon {
   position: relative;
@@ -253,142 +303,218 @@ header {
   border-color: #079cfb;
 }
 
-.logo-link {
-    text-decoration: none;
-    color:inherit;
-}
+/* Sección De Admin */
 
-/* Sección De Tareas */
-
-.gestion-productos {
-  padding: 4rem 2rem;
+.admin-dashboard {
   max-width: 1200px;
   margin: auto;
-  background-color: #fff;
+  padding: 4rem 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
 }
 
-.panel-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-}
-
-.panel-header h2 {
+.admin-header h2 {
   font-size: 2rem;
+  margin-bottom: 0.5rem;
   color: #222;
+  text-align: center;
 }
 
-.filtro-box {
+.admin-subtext {
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.admin-resumen-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.resumen-card {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.filtro-box label {
-  font-weight: 600;
-}
-
-select {
-  padding: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-.tabla-wrapper {
-  background: #f9f9f9;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  overflow-x: auto;
-}
-
-.tabla-productos {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.tabla-productos th {
-  background-color: #000;
+.icono-card {
+  font-size: 2rem;
+  background: #079cfb;
   color: white;
   padding: 1rem;
-  text-align: left;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.tabla-productos td {
-  padding: 1rem;
-  border-bottom: 1px solid #eee;
+.info-card h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
 }
 
-.tabla-productos tr:nth-child(even) {
-  background-color: #f1f1f1;
+.info-card p {
+  margin: 0.3rem 0 0;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #079cfb;
 }
 
-.tabla-productos td[contenteditable="true"] {
-  background-color: #fff;
-  outline: none;
+.admin-barras {
+  margin-bottom: 4rem;
 }
 
-.btn-editar,
-.btn-eliminar {
-  background-color: #000;
+.admin-barras h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+.barra-estadistica {
+  margin-bottom: 1.5rem;
+}
+
+.barra-estadistica label {
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  display: block;
+  color: #444;
+}
+
+.barra {
+  background-color: #e0e0e0;
+  border-radius: 50px;
+  overflow: hidden;
+  height: 24px;
+}
+
+.relleno {
+  height: 100%;
   color: white;
-  border: none;
-  padding: 0.4rem 0.8rem;
-  cursor: pointer;
   font-size: 0.85rem;
-  margin-right: 2rem;
-  transition: background 0.3s ease;
+  font-weight: 600;
+  text-align: right;
+  padding-right: 0.8rem;
+  line-height: 24px;
+  transition: width 0.6s ease;
 }
 
-.btn-editar:hover {
+.relleno.gestion {
   background-color: #079cfb;
 }
 
-.btn-eliminar:hover {
-  background-color: #c62828;
+.relleno.pedidos {
+  background-color: #0078d4;
 }
 
-/* Sección De Reportes */
+.relleno.reportes {
+  background-color: #00b894;
+}
 
-.resumen-reportes {
-      display: flex;
-      justify-content: space-between;
-      background-color: #f9f9f9;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      margin-bottom: 2rem;
-    }
+.admin-accesos h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #222;
+  text-align: center;
+}
 
-    .resumen-box {
-      text-align: center;
-    }
+.admin-accesos {
+  background-color: #0b0b0b;
+  padding: 4rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+  color: white;
+}
 
-    .resumen-box h3 {
-      margin: 0;
-      font-size: 1.2rem;
-      color: #333;
-    }
+.admin-accesos h3 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
 
-    .resumen-box p {
-      margin: 0.3rem 0 0;
-      font-size: 1.6rem;
-      font-weight: bold;
-      color: #0078d4;
-    }
+.grid-empleado {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
 
+.card-empleado {
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  text-decoration: none;
+  color: #e0e0e0;
+  transition: transform 0.3s ease, background 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-empleado:hover {
+  transform: translateY(-6px);
+  background: #222;
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #079cfb;
+}
+
+.card-empleado h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.card-empleado p {
+  font-size: 0.95rem;
+  color: #ccc;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.btn-ir {
+  background-color: #079cfb;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-align: center;
+}
+
+.btn-ir:hover {
+  background-color: #0078d4;
+}
+
+
+.logo-link {
+  text-decoration: none;
+  color: inherit
+}
   </style>
 </head>
 <body>
 
   <!-- Header -->
   <header>
-  <a href="empleado.html" class="logo-link">
+  <a href="admin.html" class="logo-link">  
   <div class="logo">F O C U S</div>
 </a>
-
 
     <nav>
       <ul class="nav-menu">
@@ -432,201 +558,116 @@ select {
 
   </header>
 
-<section class="gestion-productos">
-  <div class="panel-header">
-    <h2>Supervisión de Pedidos</h2>
-  </div>
 
-      <div class="resumen-reportes">
-      <div class="resumen-box">
-        <h3>Pedidos Totales</h3>
-        <p>128</p>
-      </div>
-      <div class="resumen-box">
-        <h3>Pedidos Entregados</h3>
-        <p>94</p>
-      </div>
-      <div class="resumen-box">
-        <h3>Pedidos Pendientes</h3>
-        <p>34</p>
+
+<section class="admin-dashboard">
+  <header class="admin-header">
+    <h2>Panel Principal del Administrador</h2>
+    <p class="admin-subtext">Resumen ejecutivo de actividad comercial y gestión interna.</p>
+  </header>
+
+  <!-- Tarjetas resumen -->
+  <div class="admin-resumen-grid">
+    <div class="resumen-card">
+      <div class="icono-card">💰</div>
+      <div class="info-card">
+        <h4>Ventas del Mes</h4>
+        <p>$48.200.000</p>
       </div>
     </div>
 
-  <div class="tabla-wrapper">
-    <table class="tabla-productos">
-      <thead>
-        <tr>
-          <th>Estado</th>
-          <th>Cliente</th>
-          <th>Fecha</th>
-          <th>Acción</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td contenteditable="true">Pendiente</td>
-          <td contenteditable="true">Laura Gómez</td>
-          <td contenteditable="true">2025-11-15</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Enviado</td>
-          <td contenteditable="true">Carlos Ruiz</td>
-          <td contenteditable="true">2025-11-14</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Entregado</td>
-          <td contenteditable="true">María Torres</td>
-          <td contenteditable="true">2025-11-12</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Pendiente</td>
-          <td contenteditable="true">Andrés Pérez</td>
-          <td contenteditable="true">2025-11-16</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Enviado</td>
-          <td contenteditable="true">Sofía Ramírez</td>
-          <td contenteditable="true">2025-11-13</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-         <tr>
-          <td contenteditable="true">Pendiente</td>
-          <td contenteditable="true">Laura Gómez</td>
-          <td contenteditable="true">2025-11-15</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Enviado</td>
-          <td contenteditable="true">Carlos Ruiz</td>
-          <td contenteditable="true">2025-11-14</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Entregado</td>
-          <td contenteditable="true">María Torres</td>
-          <td contenteditable="true">2025-11-12</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Pendiente</td>
-          <td contenteditable="true">Andrés Pérez</td>
-          <td contenteditable="true">2025-11-16</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Enviado</td>
-          <td contenteditable="true">Sofía Ramírez</td>
-          <td contenteditable="true">2025-11-13</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-         <tr>
-          <td contenteditable="true">Pendiente</td>
-          <td contenteditable="true">Laura Gómez</td>
-          <td contenteditable="true">2025-11-15</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Enviado</td>
-          <td contenteditable="true">Carlos Ruiz</td>
-          <td contenteditable="true">2025-11-14</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Entregado</td>
-          <td contenteditable="true">María Torres</td>
-          <td contenteditable="true">2025-11-12</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Pendiente</td>
-          <td contenteditable="true">Andrés Pérez</td>
-          <td contenteditable="true">2025-11-16</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Enviado</td>
-          <td contenteditable="true">Sofía Ramírez</td>
-          <td contenteditable="true">2025-11-13</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-         <tr>
-          <td contenteditable="true">Pendiente</td>
-          <td contenteditable="true">Laura Gómez</td>
-          <td contenteditable="true">2025-11-15</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Enviado</td>
-          <td contenteditable="true">Carlos Ruiz</td>
-          <td contenteditable="true">2025-11-14</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Entregado</td>
-          <td contenteditable="true">María Torres</td>
-          <td contenteditable="true">2025-11-12</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Pendiente</td>
-          <td contenteditable="true">Andrés Pérez</td>
-          <td contenteditable="true">2025-11-16</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-        <tr>
-          <td contenteditable="true">Enviado</td>
-          <td contenteditable="true">Sofía Ramírez</td>
-          <td contenteditable="true">2025-11-13</td>
-          <td>
-            <button class="btn-editar btn-actualizar">Actualizar estado</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="resumen-card">
+      <div class="icono-card">📦</div>
+      <div class="info-card">
+        <h4>Pedidos Activos</h4>
+        <p>27 pedidos</p>
+      </div>
+    </div>
+
+    <div class="resumen-card">
+      <div class="icono-card">👥</div>
+      <div class="info-card">
+        <h4>Clientes Registrados</h4>
+        <p>134 clientes</p>
+      </div>
+    </div>
+
+    <div class="resumen-card">
+      <div class="icono-card">📅</div>
+      <div class="info-card">
+        <h4>Última Venta</h4>
+        <p>18/11/2025</p>
+      </div>
+    </div>
   </div>
+
+  <!-- Barras estadísticas -->
+  <section class="admin-barras">
+    <h3>Indicadores Visuales</h3>
+
+    <div class="barra-estadistica">
+      <label>Progreso de Ventas</label>
+      <div class="barra">
+        <div class="relleno gestion" style="width: 82%;">82%</div>
+      </div>
+    </div>
+
+    <div class="barra-estadistica">
+      <label>Pedidos en curso</label>
+      <div class="barra">
+        <div class="relleno pedidos" style="width: 65%;">65%</div>
+      </div>
+    </div>
+
+    <div class="barra-estadistica">
+      <label>Crecimiento de clientes</label>
+      <div class="barra">
+        <div class="relleno reportes" style="width: 90%;">90%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accesos rápidos -->
+  <section class="admin-accesos">
+    <h3>Accesos Rápidos</h3>
+    <div class="grid-empleado">
+      <a href="admin-usuarios.html" class="card-empleado">
+        <div class="card-icon">➕</div>
+        <h3>Agregar Usuarios</h3>
+        <p>Crear empleados, asesores y clientes mayoristas.</p>
+        <span class="btn-ir">Acceder</span>
+      </a>
+
+      <a href="admin-reportes.html" class="card-empleado">
+        <div class="card-icon">📈</div>
+        <h3>Reportes Financieros</h3>
+        <p>Gráficas de ingresos, productos y clientes activos.</p>
+        <span class="btn-ir">Acceder</span>
+      </a>
+
+      <a href="admin-exportar.html" class="card-empleado">
+        <div class="card-icon">📤</div>
+        <h3>Exportar Datos</h3>
+        <p>Descargar reportes en PDF o Excel.</p>
+        <span class="btn-ir">Acceder</span>
+      </a>
+
+      <a href="admin-clientes.html" class="card-empleado">
+        <div class="card-icon">👥</div>
+        <h3>Gestión de Clientes</h3>
+        <p>Ver historial, pedidos y actividad por cliente.</p>
+        <span class="btn-ir">Acceder</span>
+      </a>
+    </div>
+  </section>
 </section>
+
+
+ 
+
+</section>
+
+<br><br>
 
   <!-- Footer -->
   <footer>
@@ -637,7 +678,7 @@ select {
   <script>
     const rol = localStorage.getItem("rolActivo");
 
-if (rol !== "empleado") {
+if (rol !== "administrador") {
   alert("Acceso denegado. Esta sección es solo para empleados.");
   window.location.href = "login.html";
 }
@@ -719,7 +760,6 @@ if (cartBtn && cartPanel && closeCart) {
     }
   });
 
-//   Sección De Barra De Busqueda
 
 // Sección De Búsqueda Con Transición
 const searchBtn = document.querySelector('.icon-btn[title="Buscar"]');
@@ -751,18 +791,7 @@ searchInput.addEventListener('keydown', (e) => {
     }
   }
 });
-
-document.getElementById("filtro-categoria").addEventListener("change", function () {
-  const categoria = this.value.toLowerCase();
-  const filas = document.querySelectorAll("#productos-body tr");
-
-  filas.forEach((fila) => {
-    const cat = fila.cells[3].textContent.toLowerCase();
-    fila.style.display = categoria === "" || cat === categoria ? "" : "none";
-  });
-});
 </script>
-
 
 
 
